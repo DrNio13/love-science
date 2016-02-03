@@ -22,12 +22,11 @@ class Database {
 			}
 		}
 
-		return $cont;
+		return self::$cont;
 	}
 
 	public static function disconnect() {
 		self::$cont = null;
 	}
-}
 
-Database::connect();
+}
