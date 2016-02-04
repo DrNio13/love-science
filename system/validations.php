@@ -8,7 +8,6 @@ class Validate {
 		// for english chars + numbers only
 		// valid username, alphanumeric & longer than or equals 5 chars
 		if (preg_match('/^[a-zA-Z0-9]{5,}$/', $username)) {
-			echo "ok <br>";
 			return true;
 		} else {
 			echo "english chars and numbers only. total password length >= 5 chars <br>";

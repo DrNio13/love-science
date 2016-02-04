@@ -9,10 +9,10 @@ function getUserByUsername($username) {
 	$sth->execute();
 	$data = $sth->fetch(PDO::FETCH_ASSOC);
 	if ($data) {
-		print "User $data[username] exists <br>";
+		// print "User $data[username] exists <br>";
 		return $data;
 	} else {
-		print "given '$username' not a user <br>";
+		// print "given '$username' not a user <br>";
 		return false;
 	}
 
