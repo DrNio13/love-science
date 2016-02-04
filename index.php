@@ -1,5 +1,5 @@
 <?php
-include 'config.php';
+	include 'config.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,6 +12,7 @@ include 'config.php';
 </head>
 <body>
 
+
 <form action="admin/index.php" method="POST">
   Username:<br>
   <input type="text" name="username" value=""><br>
@@ -19,6 +20,7 @@ include 'config.php';
   <input type="password" name="password" value=""><br><br>
   <input type="submit" value="Submit">
 </form>
+
 
 </body>
 </html>
