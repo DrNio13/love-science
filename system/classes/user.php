@@ -1,14 +1,14 @@
 <?php
-class User {
 
+include 'public_user.php';
+
+class User extends PublicUser {
 	private $username;
 	private $hashedPassword;
-	private $adminRight;
 
-	function __construct($username, $password, $admin) {
+	function __construct($username, $password) {
 		$this->username = $username;
 		$this->hashedPassword = $password;
-		$this->adminRight = $admin;
 	}
 
 	public function isAdmin() {
@@ -18,4 +18,5 @@ class User {
 			return false;
 		}
 	}
+
 }
