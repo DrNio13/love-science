@@ -1,6 +1,6 @@
 <?php
 
-include 'db_connect.php';
+include 'functions/db_connection.php';
 
 function getUserByUsername($username) {
 	$pdo = Database::connect();

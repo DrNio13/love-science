@@ -1,6 +1,8 @@
 <?php
 
-include_once '../system/validations.php';
+session_start();
+
+include_once '../system/functions/validation.php';
 include_once '../system/db_fetch.php';
 
 $username = $_POST['username'];
@@ -20,18 +22,18 @@ if (isset($username) && isset($password)) {
 		if (getUserByUsername($username)) {
 			$user = getUserByUsername($username);
 			if (password_verify($password, $user[password])) {
-				// echo 'username found and the pass is correct';
+				echo 'username found and the pass is correct';
 
 				// session_register("username");
 				// session_register("password");
 				header("location:login_success.php");
 
 			} else {
-				// echo 'username found and the pass is wrong';
+				echo 'username found and the pass is wrong';
 				header("location:login.php");
 			}
 		} else {
-			echo 'truthy and falsie not works';
+			echo 'truthy and falsy not works';
 		}
 	} else {
 		// not valid username or password

@@ -16,7 +16,7 @@ class Database {
 			try {
 				self::$cont = new PDO("mysql:host=" . HOST . ";" . "dbname=" . DATABASE, USER, PASSWORD);
 			} catch (PDOException $e) {
-				echo "Error with PDO";
+				echo "Error with PDO " . Error::info();
 				echo $e->message();
 				die();
 			}
