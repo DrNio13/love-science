@@ -33,12 +33,12 @@ if (isset($username) && isset($password)) {
 
 				if ($user->isAdmin()) {
 					$_SESSION["user"] = "administrator";
-					header("location:login_success.php");
+					header("location:frontend/index.php");
 
 				} else {
 					// low privileges user
 					$_SESSION["user"] = "registered";
-					header("location:login_success.php");
+					header("location:frontend/index.php");
 				}
 
 			} else {
