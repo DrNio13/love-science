@@ -1,18 +1,17 @@
 <?php
 
-include 'public_user.php';
+include 'public_user_database.php';
 
 class User extends PublicUser {
-	private $username;
-	private $hashedPassword;
+	private $administrator;
 
-	function __construct($username, $password) {
-		$this->username = $username;
-		$this->hashedPassword = $password;
+	function __construct($username, $hashed, $admin) {
+		parent::__construct($username, $hashed);
+		$this->administrator = $admin;
 	}
 
 	public function isAdmin() {
-		if ($this->adminRight === 1) {
+		if ((int) $this->administrator === 1) {
 			return true;
 		} else {
 			return false;

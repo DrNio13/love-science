@@ -2,6 +2,8 @@
 
 session_start();
 
+include '../configuration/psl-config.php';
+include 'errors-info.php';
 include_once '../system/functions/validation.php';
 include_once '../system/classes/user.php';
 
@@ -18,31 +20,30 @@ if (isset($username) && isset($password)) {
 	if (Validate::username($username) && Validate::password($password)) {
 
 		$username = preg_replace("/[^a-zA-Z0-9_\-]+/", "", $username);
-		// preg replace for pass ....
 
 		// user credentials passed the validations
 		$publicUser = new PublicUser($username, $password);
+		$result = $publicUser->getUserByUsername($username);
 
-		// check the db if the user is registered
-		if ($publicUser->isRegistered($username)) {
-			echo 'yes2';
+		if ($result) {
+			// username found
+			if (password_verify($password, $result['password'])) {
 
-			// we have this user in the db
-			$user = new User($username, $password);
+				$user = new User($result['username'], $result['password'], $result['administrator']);
 
-			if ($user->isAdmin()) {
-				//password_verify($password, $user[password])
+				if ($user->isAdmin()) {
+					$_SESSION["user"] = "administrator";
+					header("location:login_success.php");
 
-				// echo 'username found and the pass is correct and is admin';
-
-				// session_register("username");
-				// session_register("password");
-				header("location:login_success.php");
+				} else {
+					// low privileges user
+					$_SESSION["user"] = "registered";
+					header("location:login_success.php");
+				}
 
 			} else {
-				// echo 'username found and the pass is wrong';
-				// simple user
-				header("location:login_success.php");
+				session_write_close();
+				header("location:login.php");
 			}
 		} else {
 			echo 'not registered - wrong credentials';
