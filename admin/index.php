@@ -40,7 +40,7 @@ if (isset($username) && isset($password)) {
 					// low privileges user
 
 					$_SESSION["usertype"] = $user->getUserPrivilege();
-					$_SESSION["username"] = $user->username;
+					$_SESSION["username"] = $user->getUsername();
 					header("location:frontend/index.php");
 				}
 
