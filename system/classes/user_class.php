@@ -1,6 +1,6 @@
 <?php
 
-include 'public_user_database.php';
+include 'public_user_class.php';
 
 class User extends PublicUser {
 	private $administrator;
@@ -15,6 +15,14 @@ class User extends PublicUser {
 			return true;
 		} else {
 			return false;
+		}
+	}
+
+	public function getUserPrivilege() {
+		if ($this->isAdmin()) {
+			return "administrator";
+		} elseif ((int) $this->administrator === 0) {
+			return "registered";
 		}
 	}
 

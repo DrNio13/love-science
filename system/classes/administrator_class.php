@@ -1,5 +1,5 @@
 <?php
-include 'user.php';
+require_once 'user_class.php';
 
 class Administrator extends User {
 

@@ -1,6 +1,6 @@
 <?php
 
-include 'errors-info.php';
+require_once 'errors-info.php';
 
 class Validate {
 	public static function username($username) {

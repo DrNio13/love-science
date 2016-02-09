@@ -1,8 +1,10 @@
 <?php
 session_start();
-if (!($_SESSION['user'] === 'administrator' || $_SESSION['user'] === 'user')) {
+if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
 	header("location:../login.php");
 }
+
+// print_r($_SESSION);
 
 ?>
 
@@ -24,6 +26,8 @@ if (!($_SESSION['user'] === 'administrator' || $_SESSION['user'] === 'user')) {
 		<nav class="col-xs-12">
 			<?php require_once 'partials/common/nav.html';?>
 		</nav>
+		<p>Hi <?php echo $_SESSION['username']; ?></p>
+		<a class="btn btn-primary" href="../logout.php" title="">Logout</a>
 	</div>
 </header>
 

@@ -2,10 +2,9 @@
 
 session_start();
 
-include '../configuration/psl-config.php';
-include 'errors-info.php';
-include_once '../system/functions/validation.php';
-include_once '../system/classes/user.php';
+require_once '../configuration/psl-config.php';
+require_once '../system/functions/validation.php';
+require_once '../system/classes/user_class.php';
 
 $username = $_POST['username'];
 $password = $_POST['password'];
@@ -32,29 +31,37 @@ if (isset($username) && isset($password)) {
 				$user = new User($result['username'], $result['password'], $result['administrator']);
 
 				if ($user->isAdmin()) {
-					$_SESSION["user"] = "administrator";
+
+					$_SESSION["usertype"] = $user->getUserPrivilege();
+					$_SESSION["username"] = $user->getUsername();
 					header("location:frontend/index.php");
 
 				} else {
 					// low privileges user
-					$_SESSION["user"] = "registered";
+
+					$_SESSION["usertype"] = $user->getUserPrivilege();
+					$_SESSION["username"] = $user->username;
 					header("location:frontend/index.php");
 				}
 
 			} else {
 				session_write_close();
+				http_response_code(401);
 				header("location:login.php");
 			}
 		} else {
+			http_response_code(404);
 			echo 'not registered - wrong credentials';
 		}
 	} else {
 		// not valid username or password
 		http_response_code(404);
+		header("location:login.php");
 		die("not valid username or password");
 	}
 } else {
 	http_response_code(404);
+	header("location:login.php");
 	die("username or password not passed");
 
 }
