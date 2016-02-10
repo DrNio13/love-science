@@ -5,6 +5,11 @@ session_start();
 require_once '../configuration/local-config.php';
 require_once '../system/functions/validation.php';
 require_once '../system/classes/user_class.php';
+
+//********************************************************
+// test for brute force attack - check login.php
+//********************************************************
+
 // require_once '../system/controllers/login_controller.php';
 
 // $mainController = new LoginController();
