@@ -32,7 +32,9 @@ require_once '../config.php';?>
     		<div class="form-group">
       			<label class="control-label col-sm-4" for="password">Password:</label>
       			<div class="col-sm-4">
-        			<input type="password" name="password" class="form-control" id="password" placeholder="Enter your password" maxlength="25">
+              <div class="inner-addon left-addon">
+                <span class="glyphicon glyphicon-lock"></span>
+        			   <input type="password" name="password" class="form-control" id="password" placeholder="Enter your password" maxlength="25">
       			</div>
     		</div>
         <div class="form-group">
