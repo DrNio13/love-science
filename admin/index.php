@@ -30,19 +30,9 @@ if (isset($username) && isset($password)) {
 
 				$user = new User($result['username'], $result['password'], $result['administrator']);
 
-				if ($user->isAdmin()) {
-
-					$_SESSION["usertype"] = $user->getUserPrivilege();
-					$_SESSION["username"] = $user->getUsername();
-					header("location:frontend/index.php");
-
-				} else {
-					// low privileges user
-
-					$_SESSION["usertype"] = $user->getUserPrivilege();
-					$_SESSION["username"] = $user->getUsername();
-					header("location:frontend/index.php");
-				}
+				$_SESSION["usertype"] = $user->getUserPrivilege();
+				$_SESSION["username"] = $user->getUsername();
+				header("location:frontend/index.php");
 
 			} else {
 				session_write_close();
@@ -51,7 +41,8 @@ if (isset($username) && isset($password)) {
 			}
 		} else {
 			http_response_code(404);
-			echo 'not registered - wrong credentials';
+			//'not registered - wrong credentials';
+			header("location:login.php");
 		}
 	} else {
 		// not valid username or password
