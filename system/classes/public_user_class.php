@@ -38,7 +38,7 @@ class PublicUser {
 		return $this->username;
 	}
 
-	function getRealIpAddr() {
+	public function getRealIpAddr() {
 		//check ip from share internet
 		if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
 			$ip = $_SERVER['HTTP_CLIENT_IP'];
@@ -50,6 +50,10 @@ class PublicUser {
 			$ip = $_SERVER['REMOTE_ADDR'];
 		}
 		return $ip;
+	}
+
+	public function isUserBlocked() {
+
 	}
 
 }

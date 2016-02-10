@@ -26,17 +26,20 @@ if (isset($username) && isset($password)) {
 
 		if ($result) {
 			// username found
-			if (password_verify($password, $result['password'])) {
-
+			if (password_verify($password, $result['password']) && (int) $result['blocked'] !== 1) {
+				print_r($result);
 				$user = new User($result['username'], $result['password'], $result['administrator']);
 
 				$_SESSION["usertype"] = $user->getUserPrivilege();
 				$_SESSION["username"] = $user->getUsername();
 				$_SESSION["ip"] = $user->getRealIpAddr();
 
-				header("location:frontend/index.php");
-				exit();
+				// header("location:frontend/index.php");
+				// exit();
 
+			} elseif ((int) $result['blocked'] === 1) {
+				header("location:blocked.php");
+				exit();
 			} else {
 				session_write_close();
 				http_response_code(401);
