@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Add a Blog</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+  <script type="text/javascript">
+  	tinymce.init({
+    	selector: '#myTextarea',
+    	theme: 'modern',
+    	width: 900,
+    	height: 300,
+    	plugins: [
+      		'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+      		'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+      		'save table contextmenu directionality emoticons template paste textcolor'
+    	],
+    	toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
+  });
+  </script>
+  <style>
+
+
+
+  </style>
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Control Panel</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Site</a></li>
+      			<li><a href="#">Users</a></li>
+      			<li><a href="#">Blog Manager</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+        		<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+      		</ul>
+		</div>
+	</nav>
+	<div class="container">
+		<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="title">Title :</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="title" placeholder="Enter your Blog's Title">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="category">Category :</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="category" placeholder="Enter your Blog Category">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="metaTitle">Meta Title :</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="metaTitle" placeholder="Enter the meta title">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="metaDescription">Meta Description :</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="metaDescription" placeholder="Enter the meta description">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="metaKeywords">Meta Keywords :</label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="metaKeywords" placeholder="Enter the meta keywords">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label col-sm-2" for="status">Status :</label>
+					<div class="col-sm-1">
+						<label class="radio-inline">
+      					<input type="radio" name="optradio">Published</label>
+    				</div>
+    				<div class="col-sm-1">
+    					<label class="radio-inline">
+      					<input type="radio" name="optradio">Unpublished</label>
+    				</div>
+    			</div>
+				<div class="form-group">
+					<div class="col-sm-offset-2 col-sm-6">
+						<input type="textarea" class="form-control" id="myTextarea">
+					</div>
+				</div>
+		</form>
+		
+	</div>
+
+
+
+
+
+	</body>
+	</html>
