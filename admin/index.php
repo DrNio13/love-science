@@ -38,7 +38,7 @@ if (isset($username) && isset($password)) {
 				exit();
 
 			} elseif ((int) $result['blocked'] === 1) {
-				header("location:blocked.php");
+				header("location:blocked.html");
 				exit();
 			} else {
 				session_write_close();

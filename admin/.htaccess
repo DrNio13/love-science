@@ -1,10 +1,10 @@
 Order Deny,Allow
 Deny from all
 
-<Files ~ "\.(xml|css|jpe?g|png|gif|js|pdf)$">
+<Files ~ "\.(html|xml|css|jpe?g|png|gif|js|pdf)$">
   Allow from all
 </Files>
 
-<Files ~ "(login|index|logout|blocked)\.php$">
+<Files ~ "(login|index|logout)\.php$">
   Allow from all
 </Files>
