@@ -9,9 +9,16 @@
 </head>
 <body>
 
-
-<p>Front Page</p>
-
+<h1>Features</h1>
+<ul>
+	<li>Main navigation</li>
+	<li>Search bar</li>
+	<li>Blog list | Categorized</li>
+	<li>Gadget list</li>
+	<li>Responsive slider</li>
+	<li>Footer</li>
+	<li>Contact Us</li>
+</ul>
 
 
 </body>
