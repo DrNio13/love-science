@@ -1,4 +1,4 @@
 .phpintel
 .sass-cache
 vendor
-configuration/psl-config.php
+configuration/local-config.php
