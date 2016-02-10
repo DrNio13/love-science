@@ -2,7 +2,7 @@
 
 session_start();
 
-require_once '../configuration/psl-config.php';
+require_once '../configuration/local-config.php';
 require_once '../system/functions/validation.php';
 require_once '../system/classes/user_class.php';
 
