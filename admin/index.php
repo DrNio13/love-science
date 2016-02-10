@@ -34,8 +34,8 @@ if (isset($username) && isset($password)) {
 				$_SESSION["username"] = $user->getUsername();
 				$_SESSION["ip"] = $user->getRealIpAddr();
 
-				// header("location:frontend/index.php");
-				// exit();
+				header("location:frontend/index.php");
+				exit();
 
 			} elseif ((int) $result['blocked'] === 1) {
 				header("location:blocked.php");
