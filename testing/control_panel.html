@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Control Panel</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+  <script type="text/javascript">
+  	tinymce.init({
+    	selector: '#myTextarea',
+    	theme: 'modern',
+    	width: 600,
+    	height: 300,
+    	plugins: [
+      		'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
+      		'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
+      		'save table contextmenu directionality emoticons template paste textcolor'
+    	],
+    	toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
+  });
+  </script>
+  <style>
+  	.title2{
+  		padding-bottom: 10%;
+  		float: left;
+  	}
+
+  	.logo{
+  		font-size: 50px;
+
+  	}
+
+  	.row{
+  		clear: left;
+  	}
+
+  	.logo:hover{
+  		color: gray;
+  	}
+  	a{
+  		text-decoration: none !important;
+  	}
+  	#myTextarea{
+ 
+  	}
+
+
+  </style>
+
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#">Control Panel</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Site</a></li>
+      			<li><a href="#">Users</a></li>
+      			<li><a href="#">Blog Manager</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+        		<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+      		</ul>
+		</div>
+	</nav>
+	<div class="container text-center">
+		<h2 class="title2">I Love Science</h2>
+		<div class="row">
+			<div class="col-sm-4">
+				<span class="glyphicon glyphicon-plus-sign logo"></span>
+				<br>
+				<h4><a href="#">Add a new Blog</a></h4>
+			</div>
+			<div class="col-sm-4">
+				<span class="glyphicon glyphicon-list-alt logo"></span>
+				<br>
+				<h4><a href="#">All the Blogs</a></h4>
+			</div>
+			<div class="col-sm-4">
+				<span class="glyphicon glyphicon-user logo"></span>
+				<br>
+				<h4><a href="#">User Manager</a></h4>
+			</div>
+		</div>
+
+	</div>
+	<div>
+		<input type="textarea" id="myTextarea">
+	</div>
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
