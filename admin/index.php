@@ -32,6 +32,7 @@ if (isset($username) && isset($password)) {
 
 				$_SESSION["usertype"] = $user->getUserPrivilege();
 				$_SESSION["username"] = $user->getUsername();
+
 				header("location:frontend/index.php");
 
 			} else {
