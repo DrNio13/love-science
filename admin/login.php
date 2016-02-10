@@ -1,6 +1,4 @@
-<?php
-
-require_once '../config.php';?>
+<?php require_once '../config.php';?>
 
 <!DOCTYPE html>
 <html>
@@ -54,7 +52,7 @@ require_once '../config.php';?>
 
 </div>
 
-
+<?php require_once DOCUMENT_ROOT . '/system/controllers/login_controller.php'?>
 
 </body>
 </html>
