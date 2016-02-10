@@ -1,5 +1,23 @@
 <?php require_once '../config.php';?>
 
+
+
+<?php
+require_once DOCUMENT_ROOT . '/configuration/local-config.php';
+require_once SYSTEM . '/controllers/login_controller.php';
+
+$mainController = new LoginController();
+$ip = $mainController->getRealIpAddr();
+// print $ip;
+
+// $mainController->setLoginRecord($ip);
+// $r = $mainController->getLoginRecordByIp($ip);
+// $counter = (int) $r['login_counter'];
+// $s = $mainController->updateLoginCounter($ip, $counter);
+// print_r($s);
+// print_r($r);
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,8 +69,6 @@
   		</form>
 
 </div>
-
-<?php require_once DOCUMENT_ROOT . '/system/controllers/login_controller.php'?>
 
 </body>
 </html>

@@ -17,11 +17,14 @@ class PublicUser {
 	 */
 	public function getUserByUsername($username) {
 		$pdo = Database::connect();
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
 		$sth = $pdo->prepare('SELECT * FROM users WHERE username=:username');
 		$sth->bindParam(':username', $username);
 		$sth->execute();
 
 		$data = $sth->fetch(PDO::FETCH_ASSOC);
+
 		if ($data) {
 			// print "User $data[username] exists <br>";
 			Database::disconnect();
