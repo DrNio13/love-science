@@ -32,18 +32,22 @@ if (isset($username) && isset($password)) {
 
 				$_SESSION["usertype"] = $user->getUserPrivilege();
 				$_SESSION["username"] = $user->getUsername();
+				$_SESSION["ip"] = $user->getRealIpAddr();
 
 				header("location:frontend/index.php");
+				exit();
 
 			} else {
 				session_write_close();
 				http_response_code(401);
 				header("location:login.php");
+				exit();
 			}
 		} else {
 			http_response_code(404);
 			//'not registered - wrong credentials';
 			header("location:login.php");
+			exit();
 		}
 	} else {
 		// not valid username or password
