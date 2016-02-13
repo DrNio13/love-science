@@ -3,19 +3,23 @@
 
 
 <?php
-require_once DOCUMENT_ROOT . '/configuration/local-config.php';
-require_once SYSTEM . '/controllers/login_controller.php';
+// require_once DOCUMENT_ROOT . '/configuration/local-config.php';
+// require_once SYSTEM . '/controllers/login_controller.php';
 
-$mainController = new LoginController();
-$ip = $mainController->getRealIpAddr();
-// print $ip;
+// $mainController = new LoginController();
+// $ip = $mainController->getRealIpAddr();
 
-// $mainController->setLoginRecord($ip);
-// $r = $mainController->getLoginRecordByIp($ip);
-// $counter = (int) $r['login_counter'];
-// $s = $mainController->updateLoginCounter($ip, $counter);
-// print_r($s);
-// print_r($r);
+// $record = $mainController->getLoginRecordByIp($ip);
+// if ($record) {
+// 	$counter = (int) $record['login_counter'];
+// 	$loginCounter = $mainController->updateLoginCounter($ip, $counter);
+// } else {
+// 	$mainController->setLoginRecord($ip);
+// }
+// if ($loginCounter >= 5) {
+// 	header("location:blocked.html");
+// }
+
 ?>
 
 <!DOCTYPE html>

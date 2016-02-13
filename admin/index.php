@@ -2,9 +2,11 @@
 
 session_start();
 
+require_once '../config.php';
 require_once '../configuration/local-config.php';
 require_once '../system/functions/validation.php';
 require_once '../system/classes/user_class.php';
+require_once SYSTEM . '/controllers/login_controller.php';
 
 //********************************************************
 // test for brute force attack - check login.php
@@ -24,6 +26,10 @@ if (isset($username) && isset($password)) {
 
 	$username = stripcslashes($username);
 	$passoword = stripcslashes($password);
+
+	$mainController = new LoginController();
+	$ip = $mainController->getRealIpAddr();
+	$record = $mainController->getLoginRecordByIp($ip);
 
 	// Run validations
 	if (Validate::username($username) && Validate::password($password)) {
@@ -51,18 +57,55 @@ if (isset($username) && isset($password)) {
 				header("location:blocked.html");
 				exit();
 			} else {
+
+				//******wrap it in a function********//
+				if ($record) {
+					$counter = (int) $record['login_counter'];
+					$loginCounter = $mainController->updateLoginCounter($ip, $counter);
+				} else {
+					$mainController->setLoginRecord($ip);
+				}
+				if ($loginCounter >= 5) {
+					header("location:blocked.html");
+				}
+				//************************************//
+
 				session_write_close();
 				http_response_code(401);
 				header("location:login.php");
 				exit();
 			}
 		} else {
+
+			//*********** wrap it in a function ********//
+			if ($record) {
+				$counter = (int) $record['login_counter'];
+				$loginCounter = $mainController->updateLoginCounter($ip, $counter);
+			} else {
+				$mainController->setLoginRecord($ip);
+			}
+			if ($loginCounter >= 5) {
+				header("location:blocked.html");
+			}
+			//************************************//
+
 			http_response_code(404);
 			//'not registered - wrong credentials';
 			header("location:login.php");
 			exit();
 		}
 	} else {
+
+		if ($record) {
+			$counter = (int) $record['login_counter'];
+			$loginCounter = $mainController->updateLoginCounter($ip, $counter);
+		} else {
+			$mainController->setLoginRecord($ip);
+		}
+		if ($loginCounter >= 5) {
+			header("location:blocked.html");
+		}
+
 		// not valid username or password
 		http_response_code(404);
 		header("location:login.php");

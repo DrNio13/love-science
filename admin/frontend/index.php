@@ -9,47 +9,119 @@ print_r($_SESSION);
 ?>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Admin System</title>
-	<link rel="stylesheet" href="">
+  <title>Control Panel</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style>
+  	.title2{
+  		padding-bottom: 10%;
+  		float: left;
+  	}
 
-	<!-- angular-1.5 js , bootstrap.css -->
+  	.logo{
+  		font-size: 50px;
 
+  	}
+
+  	.row{
+  		clear: left;
+  	}
+
+  	.logo:hover{
+  		color: gray;
+  	}
+
+  	nav a {
+		position: relative;
+		display: inline-block;
+		outline: none;
+		color: #222222;
+		text-decoration: none;
+		text-shadow: 0 0 1px rgba(255,255,255,0.3);
+	}
+
+  	.cl-effect-5 a {
+		overflow: hidden;
+		padding: 0 4px;
+		height: 1.1em;
+	}
+
+	.cl-effect-5 a span {
+		position: relative;
+		display: inline-block;
+		-webkit-transition: -webkit-transform 0.3s;
+		-moz-transition: -moz-transform 0.3s;
+		transition: transform 0.3s;
+	}
+
+	.cl-effect-5 a span::before {
+		position: absolute;
+		top: 100%;
+		content: attr(data-hover);
+		color: #4285F4;
+		-webkit-transform: translate3d(0,0,0);
+		-moz-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+
+	.cl-effect-5 a:hover span,
+	.cl-effect-5 a:focus span {
+		color: #222222;
+		-webkit-transform: translateY(-100%);
+		-moz-transform: translateY(-100%);
+		transform: translateY(-100%);
+	}
+
+  </style>
 </head>
+
 <body>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="control_panel.html">Control Panel</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="control_panel.html">Home</a></li>
+				<li><a href="#">Site</a></li>
+      			<li><a href="#">Users</a></li>
+      			<li><a href="list-blogs.html">Blog Manager</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+        		<li><a href="../logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+      		</ul>
+		</div>
+	</nav>
+	<div class="container text-center">
+		<h2 class="title2">I Love Science</h2>
+		<div class="row">
+			<section>
+				<nav class="cl-effect-5">
+					<div class="col-sm-4">
+						<span class="glyphicon glyphicon-plus-sign logo"></span>
+						<br>
+						<h4><a href="addBlog.html"><span data-hover="Add a new Blog">Add a new Blog</a></h4>
+					</div>
+					<div class="col-sm-4">
+						<span class="glyphicon glyphicon-list-alt logo"></span>
+						<br>
+						<h4><a href="list-blogs.html"><span data-hover="All the Blogs">All the Blogs</a></h4>
+					</div>
+					<div class="col-sm-4">
+						<span class="glyphicon glyphicon-user logo"></span>
+						<br>
+						<h4><a href="#"><span data-hover="User Manager">User Manager</a></h4>
+					</div>
+				</nav>
+			</section>
+		</div>
 
-<header id="header" class="container-fluid">
-	<div class="row">
-		<nav class="col-xs-12">
-			<?php require_once 'partials/common/nav.html';?>
-		</nav>
-		<p>Hi <?php echo $_SESSION['username']; ?></p>
-		<a class="btn btn-primary" href="../logout.php" title="">Logout</a>
 	</div>
-</header>
-
-<section class="main-wrapper container-fluid">
-	<div class="row">
-		<main class="main col-md-8" id="main-page">
-			<?php require_once 'partials/common/main.html';?>
-		</main>
-
-		<aside class="sidebar col-md-4" id="sidebar-right">
-			<?php require_once 'partials/common/sidebar.html';?>
-		</aside>
-
-	</div>
-</section>
-
-<footer id="footer" class="footer container-fluid">
-	<div class="row">
-		<?php require_once 'partials/common/footer.html';?>
-	</div>
-</footer>
-
 
 </body>
 </html>
