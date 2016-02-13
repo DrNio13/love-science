@@ -25,29 +25,62 @@
   	.logo:hover{
   		color: gray;
   	}
-  	a{
-  		text-decoration: none !important;
-  	}
-  	#myTextarea{
- 
-  	}
 
+  	nav a {
+		position: relative;
+		display: inline-block;
+		outline: none;
+		color: #222222;
+		text-decoration: none;
+		text-shadow: 0 0 1px rgba(255,255,255,0.3);
+	}
+	
+  	.cl-effect-5 a {
+		overflow: hidden;
+		padding: 0 4px;
+		height: 1.1em;
+	}
+
+	.cl-effect-5 a span {
+		position: relative;
+		display: inline-block;
+		-webkit-transition: -webkit-transform 0.3s;
+		-moz-transition: -moz-transform 0.3s;
+		transition: transform 0.3s;
+	}
+
+	.cl-effect-5 a span::before {
+		position: absolute;
+		top: 100%;
+		content: attr(data-hover);
+		color: #4285F4;
+		-webkit-transform: translate3d(0,0,0);
+		-moz-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+
+	.cl-effect-5 a:hover span,
+	.cl-effect-5 a:focus span {
+		color: #222222;
+		-webkit-transform: translateY(-100%);
+		-moz-transform: translateY(-100%);
+		transform: translateY(-100%);
+	}
 
   </style>
-
 </head>
 
 <body>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Control Panel</a>
+				<a class="navbar-brand" href="control_panel.html">Control Panel</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
+				<li class="active"><a href="control_panel.html">Home</a></li>
 				<li><a href="#">Site</a></li>
       			<li><a href="#">Users</a></li>
-      			<li><a href="#">Blog Manager</a></li>
+      			<li><a href="list-blogs.html">Blog Manager</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
         		<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
@@ -57,25 +90,28 @@
 	<div class="container text-center">
 		<h2 class="title2">I Love Science</h2>
 		<div class="row">
-			<div class="col-sm-4">
-				<span class="glyphicon glyphicon-plus-sign logo"></span>
-				<br>
-				<h4><a href="addBlog.html">Add a new Blog</a></h4>
-			</div>
-			<div class="col-sm-4">
-				<span class="glyphicon glyphicon-list-alt logo"></span>
-				<br>
-				<h4><a href="list-blogs.html">All the Blogs</a></h4>
-			</div>
-			<div class="col-sm-4">
-				<span class="glyphicon glyphicon-user logo"></span>
-				<br>
-				<h4><a href="#">User Manager</a></h4>
-			</div>
+			<section>
+				<nav class="cl-effect-5">
+					<div class="col-sm-4">
+						<span class="glyphicon glyphicon-plus-sign logo"></span>
+						<br>
+						<h4><a href="addBlog.html"><span data-hover="Add a new Blog">Add a new Blog</a></h4>
+					</div>
+					<div class="col-sm-4">
+						<span class="glyphicon glyphicon-list-alt logo"></span>
+						<br>
+						<h4><a href="list-blogs.html"><span data-hover="All the Blogs">All the Blogs</a></h4>
+					</div>
+					<div class="col-sm-4">
+						<span class="glyphicon glyphicon-user logo"></span>
+						<br>
+						<h4><a href="#"><span data-hover="User Manager">User Manager</a></h4>
+					</div>
+				</nav>
+			</section>
 		</div>
 
 	</div>
-	
 	
 </body>
 </html>
