@@ -5,6 +5,6 @@ Deny from all
   Allow from all
 </Files>
 
-<Files ~ "(login|index|logout|add-blog|list-blogs)\.php$">
+<Files ~ "(login|index|logout)\.php$">
   Allow from all
 </Files>

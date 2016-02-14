@@ -84,13 +84,13 @@ print_r($_SESSION);
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="control_panel.html">Control Panel</a>
+				<a class="navbar-brand" href="index.php">Control Panel</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="control_panel.html">Home</a></li>
+				<li class="active"><a href="index.php">Home</a></li>
 				<li><a href="#">Site</a></li>
       			<li><a href="#">Users</a></li>
-      			<li><a href="list-blogs.html">Blog Manager</a></li>
+      			<li><a href="list-blogs.php">Blog Manager</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
         		<li><a href="../logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
@@ -105,12 +105,12 @@ print_r($_SESSION);
 					<div class="col-sm-4">
 						<span class="glyphicon glyphicon-plus-sign logo"></span>
 						<br>
-						<h4><a href="addBlog.html"><span data-hover="Add a new Blog">Add a new Blog</a></h4>
+						<h4><a href="add-blog.php"><span data-hover="Add a new Blog">Add a new Blog</a></h4>
 					</div>
 					<div class="col-sm-4">
 						<span class="glyphicon glyphicon-list-alt logo"></span>
 						<br>
-						<h4><a href="list-blogs.html"><span data-hover="All the Blogs">All the Blogs</a></h4>
+						<h4><a href="list-blogs.php"><span data-hover="All the Blogs">All the Blogs</a></h4>
 					</div>
 					<div class="col-sm-4">
 						<span class="glyphicon glyphicon-user logo"></span>

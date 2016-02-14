@@ -1,3 +1,13 @@
+<?php
+session_start();
+if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
+	header("location:../login.php");
+}
+
+print_r($_SESSION);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +32,7 @@
       ],
       toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
   });
-  
+
   </script>
 </head>
 
@@ -34,7 +44,7 @@
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
+        <span class="icon-bar"></span>
       </button>
 			</div>
       <div class="collapse navbar-collapse" id="myNavbar">
@@ -53,14 +63,14 @@
       <h3><span class="glyphicon glyphicon-pencil"></span>Blog Manager : Add a new Blog</h3>
     </div>
 	</nav>
-  
+
 <div class="container-fluid">
     <div class="row center-text">
         <div class="col-xs-3 col-xs-offset-3 col-sm-1 col-sm-offset-5">
           <button type="button" class="btn btn-success">Save</button>
         </div>
         <div class="col-xs-3 col-sm-1">
-          <button type="button" class="btn btn-danger">Cancel</button>
+          <a href='index.php' type="button" class="btn btn-danger">Cancel</a>
         </div>
     </div>
     <hr>
@@ -83,7 +93,7 @@
               <input type="radio" id="rb1" name="rb" value="" checked>
               <label for="rb1" class="center-label">Published</label>
               <input type="radio" id="rb2" name="rb"value="">
-              <label for="rb2" class="center-label lbl">Unpublished</label>  
+              <label for="rb2" class="center-label lbl">Unpublished</label>
           </div>
           <br>
           <div class="form-group">
