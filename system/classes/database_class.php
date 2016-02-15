@@ -1,5 +1,7 @@
 <?php
 
+require_once '../../configuration/local-config.php';
+
 class Database {
 	private static $cont = null;
 

@@ -1,9 +1,20 @@
 <?php
 session_start();
+require '../../config.php';
+require_once SYSTEM . '/classes/article_class.php';
+
 if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
 	header("location:../login.php");
 }
 
+// $article = new Article('prwto', 'prwto', 'article');
+// $a = new Article('prwto', 'xxx', 'asdasdasd');
+
+// if ($article->isArticleExisting()) {
+// 	echo $article->isArticleExisting();
+// }
+
+// print $a->updateArticle();
 print_r($_SESSION);
 
 ?>

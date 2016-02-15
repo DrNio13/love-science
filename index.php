@@ -20,6 +20,7 @@
 	<li>Contact Us</li>
 </ul>
 
+<?php print $_GET['slug'];?>
 
 </body>
 </html>
