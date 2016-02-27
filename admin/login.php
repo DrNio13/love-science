@@ -1,7 +1,5 @@
 <?php require_once '../config.php';?>
 
-
-
 <?php
 // require_once DOCUMENT_ROOT . '/configuration/local-config.php';
 // require_once SYSTEM . '/controllers/login_controller.php';

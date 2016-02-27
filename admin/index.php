@@ -3,9 +3,9 @@
 session_start();
 
 require_once '../config.php';
-require_once '../configuration/local-config.php';
-require_once '../system/functions/validation.php';
-require_once '../system/classes/user_class.php';
+require_once CONFIG . '/local-config.php';
+require_once SYSTEM . '/functions/validation.php';
+require_once SYSTEM . '/classes/user_class.php';
 require_once SYSTEM . '/controllers/login_controller.php';
 
 //********************************************************
