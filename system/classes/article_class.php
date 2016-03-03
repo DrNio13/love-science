@@ -21,7 +21,12 @@ class Article {
 		return array('title' => $title, 'category' => $category, 'content' => $content);
 	}
 
-	public function isArticleExisting() {
+	public function getArticleName() {
+		$title = $this->title;
+		return $title;
+	}
+
+	public function articleExists() {
 
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -40,11 +45,13 @@ class Article {
 		if ($data) {
 			Database::disconnect();
 			header('400 NOT OK');
-			return json_encode(array("error" => "article with that title already exists in the database. Please try again with unique title."));
+			return true;
+			// return json_encode(array("error" => "article with that title already exists in the database. Please try again with unique title."));
 		} else {
 			Database::disconnect();
 			header('200 OK');
-			return json_encode(array("message" => "article doesn't exists in the database"));
+			return false;
+			// return json_encode(array("message" => "article doesn't exists in the database"));
 		}
 	}
 
