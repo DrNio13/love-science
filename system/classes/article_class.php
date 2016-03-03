@@ -4,21 +4,21 @@ require_once 'database_class.php';
 
 class Article {
 	private $title;
-	private $url;
+	private $category;
 	private $content;
 
-	public function __construct($title, $url, $content) {
+	public function __construct($title, $category, $content) {
 		$this->title = $title;
-		$this->url = $url;
+		$this->category = $category;
 		$this->content = $content;
 	}
 
 	public function getArticleProperties() {
 		$title = $this->title;
-		$url = $this->url;
+		$category = $this->category;
 		$content = $this->content;
 
-		return array('title' => $title, 'url' => $url, 'content' => $content);
+		return array('title' => $title, 'category' => $category, 'content' => $content);
 	}
 
 	public function isArticleExisting() {
@@ -53,10 +53,10 @@ class Article {
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		try {
-			$statement = $pdo->prepare("INSERT INTO articles(title,url,content) VALUES(:title,:url,:content)");
+			$statement = $pdo->prepare("INSERT INTO articles(title,category,content) VALUES(:title,:category,:content)");
 			$statement->execute(array(
 				"title" => $this->title,
-				"url" => $this->url,
+				"category" => $this->category,
 				"content" => $this->content,
 			));
 		} catch (Exception $e) {
@@ -92,10 +92,10 @@ class Article {
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		try {
-			$statement = $pdo->prepare("UPDATE articles SET title=:title, url=:url, content=:content WHERE title=:title");
+			$statement = $pdo->prepare("UPDATE articles SET title=:title, category=:category, content=:content WHERE title=:title");
 			$statement->execute(array(
 				'title' => $this->title,
-				'url' => $this->url,
+				'category' => $this->category,
 				'content' => $this->content,
 			));
 		} catch (Exception $e) {

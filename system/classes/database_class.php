@@ -1,6 +1,9 @@
 <?php
 
-require_once '../configuration/local-config.php';
+define("HOST", "localhost");
+define("USER", "root");
+define("PASSWORD", "root");
+define("DATABASE", "yesilovescience.info");
 
 class Database {
 	private static $cont = null;
