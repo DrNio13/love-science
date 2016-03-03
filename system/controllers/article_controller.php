@@ -23,14 +23,8 @@ class ArticleController {
 
 		$data = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-		if ($data) {
-			Database::disconnect();
-			print json_encode($data);
-		} else {
-			Database::disconnect();
-			http_response_code(500);
-			print json_encode($data);
-		}
+		Database::disconnect();
+		print json_encode($data);
 	}
 
 }
