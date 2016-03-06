@@ -22,9 +22,17 @@ class ArticleController {
 		}
 
 		$data = $statement->fetchAll(PDO::FETCH_ASSOC);
+		$a = array();
+
+		// Remove html from content
+		foreach ($data as $key => $value) {
+			$replaced = strip_tags($value['content']);
+			$value['content'] = $replaced;
+			array_push($a, $value);
+		}
 
 		Database::disconnect();
-		print json_encode($data);
+		echo json_encode($a);
 	}
 
 }

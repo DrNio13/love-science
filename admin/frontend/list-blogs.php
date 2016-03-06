@@ -17,6 +17,7 @@ print_r($_SESSION);
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="js/app.js"></script>
   <style>
   	.table-bordered{
 
@@ -77,30 +78,7 @@ print_r($_SESSION);
 					<td>Cell 4</td>
 					<td>Cell 4</td>
 				</tr>
-				<tr>
-					<td>2nd blog post</td>
-					<td>Cell 5</td>
-					<td>Cell 6</td>
-					<td>Cell 7</td>
-					<td>Cell 4</td>
-					<td>Cell 4</td>
-				</tr>
-				<tr>
-					<td>3rd blog post</td>
-					<td>Cell 8</td>
-					<td>Cell 9</td>
-					<td>Cell 10</td>
-					<td>Cell 4</td>
-					<td>Cell 4</td>
-				</tr>
-				<tr>
-					<td>4th blog post</td>
-					<td>Cell 11</td>
-					<td>Cell 12</td>
-					<td>Cell 13</td>
-					<td>Cell 4</td>
-					<td>Cell 4</td>
-				</tr>
+
 		</table>
 
 
