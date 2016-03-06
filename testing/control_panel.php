@@ -1,13 +1,3 @@
-<?php
-session_start();
-if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
-	header("location:../login.php");
-}
-
-print_r($_SESSION);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,10 +26,6 @@ print_r($_SESSION);
   		color: gray;
   	}
 
-  	.navbar{
-  		border-radius: 0;
-  	}
-
   	nav a {
 		position: relative;
 		display: inline-block;
@@ -48,18 +34,14 @@ print_r($_SESSION);
 		text-decoration: none;
 		text-shadow: 0 0 1px rgba(255,255,255,0.3);
 	}
-
-	.navbar-right:hover{
-		cursor: pointer;
-	}
-
-  	.cl-effect-5 h4 a {
+	
+  	.cl-effect-5 a {
 		overflow: hidden;
 		padding: 0 4px;
 		height: 1.1em;
 	}
 
-	.cl-effect-5 h4 a span {
+	.cl-effect-5 a span {
 		position: relative;
 		display: inline-block;
 		-webkit-transition: -webkit-transform 0.3s;
@@ -67,7 +49,7 @@ print_r($_SESSION);
 		transition: transform 0.3s;
 	}
 
-	.cl-effect-5 h4 a span::before {
+	.cl-effect-5 a span::before {
 		position: absolute;
 		top: 100%;
 		content: attr(data-hover);
@@ -77,8 +59,8 @@ print_r($_SESSION);
 		transform: translate3d(0,0,0);
 	}
 
-	.cl-effect-5 h4 a:hover span,
-	.cl-effect-5 h4 a:focus span {
+	.cl-effect-5 a:hover span,
+	.cl-effect-5 a:focus span {
 		color: #222222;
 		-webkit-transform: translateY(-100%);
 		-moz-transform: translateY(-100%);
@@ -89,24 +71,24 @@ print_r($_SESSION);
 </head>
 
 <body>
-	<?php include '/partials/common/nav.php';?>
+	<?php include 'nav.php';?>
 	<div class="container text-center">
 		<h2 class="title2">I Love Science</h2>
 		<div class="row">
 			<section>
 				<nav class="cl-effect-5">
 					<div class="col-sm-4">
-						<a href="add-blog.php"><span class="glyphicon glyphicon-plus-sign logo"></span></a>
+						<span class="glyphicon glyphicon-plus-sign logo"></span>
 						<br>
-						<h4><a href="add-blog.php"><span data-hover="Add a new Blog">Add a new Blog</a></h4>
+						<h4><a href="addBlog.html"><span data-hover="Add a new Blog">Add a new Blog</a></h4>
 					</div>
 					<div class="col-sm-4">
-						<a href="list-blogs.php"><span class="glyphicon glyphicon-list-alt logo"></span></a>
+						<span class="glyphicon glyphicon-list-alt logo"></span>
 						<br>
 						<h4><a href="list-blogs.php"><span data-hover="All the Blogs">All the Blogs</a></h4>
 					</div>
 					<div class="col-sm-4">
-						<a href="#"><span class="glyphicon glyphicon-user logo"></span></a>
+						<span class="glyphicon glyphicon-user logo"></span>
 						<br>
 						<h4><a href="#"><span data-hover="User Manager">User Manager</a></h4>
 					</div>
@@ -115,6 +97,6 @@ print_r($_SESSION);
 		</div>
 
 	</div>
-
+	
 </body>
 </html>
