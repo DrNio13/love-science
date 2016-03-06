@@ -4,8 +4,6 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 	header("location:../login.php");
 }
 
-print_r($_SESSION);
-
 ?>
 
 <!DOCTYPE html>
@@ -14,30 +12,14 @@ print_r($_SESSION);
   <title>Blog List</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/love-science/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <script src="/love-science/node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="/love-science/node_modules/angular/angular.min.js"></script>
   <script src="js/app.js"></script>
-  <style>
-  	.table-bordered{
-
-  	}
-
-  	.logout{
-  		position: absolute;
-  		top: 2%;
-  		right: 10%;
-		display :inline-block !important;
-  	}
-
-  	.addblog{
-  		margin-bottom:2%;
-  	}
-
-  </style>
 </head>
 
 <body>
+
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -54,6 +36,7 @@ print_r($_SESSION);
       		</ul>
 		</div>
 	</nav>
+
 	<div class="container">
 
 		<h2>Blogs</h2>
@@ -80,26 +63,7 @@ print_r($_SESSION);
 				</tr>
 
 		</table>
-
-
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

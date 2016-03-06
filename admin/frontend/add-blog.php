@@ -15,7 +15,6 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 // }
 
 // print $a->updateArticle();
-print_r($_SESSION);
 
 ?>
 
