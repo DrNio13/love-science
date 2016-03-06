@@ -5,7 +5,7 @@ require_once SYSTEM . "/classes/article_class.php";
 
 if (!empty($_POST["content"]) && !empty($_POST["title"]) && !empty($_POST["category"])) {
 
-	$article = new Article($_POST["title"], $_POST["category"], $_POST["content"]);
+	$article = new Article($_POST["title"], $_POST["category"], $_POST["content"], $_POST["meta-title"], $_POST["meta-description"], $_POST["meta-keywords"]);
 
 	if ($article->articleExists()) {
 		$article->updateArticle();

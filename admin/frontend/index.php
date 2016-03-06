@@ -4,8 +4,6 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 	header("location:../login.php");
 }
 
-print_r($_SESSION);
-
 ?>
 
 <!DOCTYPE html>
