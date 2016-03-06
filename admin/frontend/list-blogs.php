@@ -39,32 +39,8 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 
   </style>
 </head>
-
 <body>
 	<?php include '/partials/common/nav.php';?>
-=======
-</head>
-
-<body>
-
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="index.php">Control Panel</a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="index.php">Home</a></li>
-				<li><a href="#">Site</a></li>
-      			<li><a href="#">Users</a></li>
-      			<li><a href="list-blogs.html">Blog Manager</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-        		<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
-      		</ul>
-		</div>
-	</nav>
-
->>>>>>> 7b3cbb2cc1e8b264667ac8128bd0b51cd10571ed
 	<div class="container">
 
 		<h2>Blogs</h2>
