@@ -1,5 +1,8 @@
 <?php
+
 session_start();
+require '../../config.php';
+
 if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
 	header("location:../login.php");
 }
@@ -87,7 +90,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 </head>
 
 <body>
-	<?php include '/partials/common/nav.php';?>
+	<?php require_once ADMIN . '/frontend/partials/common/nav.php';?>
 	<div class="container text-center">
 		<h2 class="title2">I Love Science</h2>
 		<div class="row">
