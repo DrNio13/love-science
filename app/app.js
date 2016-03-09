@@ -1,3 +1,4 @@
+'use strict';
 var mainApp = angular.module('mainApp', ['ngRoute', 'mainAppControllers']);
 
 mainApp.config(['$routeProvider', function($routeProvider) {
@@ -9,10 +10,6 @@ mainApp.config(['$routeProvider', function($routeProvider) {
 		.when('/categories', {
 			templateUrl: 'app/shared/gadgets/categories.html',
 			controller: 'GadgetsCategoriesController'
-		})
-		.when('/gadgets', {
-			templateUrl: 'app/shared/gadgets/view.html',
-			controller: 'GadgetsController'
 		})
 		.otherwise({ 
 			redirectTo: '/'
