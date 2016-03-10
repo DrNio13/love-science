@@ -14,7 +14,7 @@ class ArticleController {
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		try {
-			$statement = $pdo->prepare("SELECT * FROM articles");
+			$statement = $pdo->prepare("SELECT id,title,category,content FROM articles");
 			$statement->execute();
 		} catch (Exception $e) {
 			Database::disconnect();

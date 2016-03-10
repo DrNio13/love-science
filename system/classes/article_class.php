@@ -6,28 +6,19 @@ class Article {
 	private $title;
 	private $category;
 	private $content;
-	private $metaTitle;
-	private $metaDescription;
-	private $metaKeywords;
 
-	public function __construct($title, $category, $content, $metaTitle, $metaDescription, $metaKeywords) {
+	public function __construct($title, $category, $content) {
 		$this->title = $title;
 		$this->category = $category;
 		$this->content = $content;
-		$this->metaTitle = $metaTitle;
-		$this->metaDescription = $metaDescription;
-		$this->metaKeywords = $metaKeywords;
 	}
 
 	public function getArticleProperties() {
 		$title = $this->title;
 		$category = $this->category;
 		$content = $this->content;
-		$metaTitle = $this->metaTitle;
-		$metaDescription = $this->metaDescription;
-		$metaKeywords = $this->metaKeywords;
 
-		return array('title' => $title, 'category' => $category, 'content' => $content, $metaTitle, $metaDescription, $metaKeywords);
+		return array('title' => $title, 'category' => $category, 'content' => $content);
 	}
 
 	public function getArticleName() {
@@ -69,18 +60,15 @@ class Article {
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		try {
-			$statement = $pdo->prepare("INSERT INTO articles(title,category,content,meta_title,meta_description,meta_keywords) VALUES(:title,:category,:content,:metaTitle,:metaDescription,:metaKeywords)");
+			$statement = $pdo->prepare("INSERT INTO articles(title,category,content) VALUES(:title,:category,:content)");
 			$statement->execute(array(
 				"title" => $this->title,
 				"category" => $this->category,
 				"content" => $this->content,
-				"metaTitle" => $this->metaTitle,
-				"metaDescription" => $this->metaDescription,
-				"metaKeywords" => $this->metaKeywords,
 			));
 		} catch (Exception $e) {
 			Database::disconnect();
-			print $e->getMessage();
+			return $e->getMessage();
 		}
 
 		Database::disconnect();
@@ -111,14 +99,11 @@ class Article {
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		try {
-			$statement = $pdo->prepare("UPDATE articles SET title=:title, category=:category, content=:content, meta_title=:metaTitle, meta_description=:metaDescription, meta_keywords=:metaKeywords WHERE title=:title");
+			$statement = $pdo->prepare("UPDATE articles SET title=:title, category=:category, content=:content WHERE title=:title");
 			$statement->execute(array(
 				'title' => $this->title,
 				'category' => $this->category,
 				'content' => $this->content,
-				'metaTitle' => $this->metaTitle,
-				'metaDescription' => $this->metaDescription,
-				'metaKeywords' => $this->metaKeywords,
 			));
 		} catch (Exception $e) {
 			Database::disconnect();
