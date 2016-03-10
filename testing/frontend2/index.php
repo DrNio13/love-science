@@ -4,6 +4,8 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 	header("location:../login.php");
 }
 
+print_r($_SESSION);
+
 ?>
 
 <!DOCTYPE html>
@@ -34,10 +36,6 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   		color: gray;
   	}
 
-  	.navbar{
-  		border-radius: 0;
-  	}
-
   	nav a {
 		position: relative;
 		display: inline-block;
@@ -47,17 +45,13 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 		text-shadow: 0 0 1px rgba(255,255,255,0.3);
 	}
 
-	.navbar-right:hover{
-		cursor: pointer;
-	}
-
-  	.cl-effect-5 h4 a {
+  	.cl-effect-5 a {
 		overflow: hidden;
 		padding: 0 4px;
 		height: 1.1em;
 	}
 
-	.cl-effect-5 h4 a span {
+	.cl-effect-5 a span {
 		position: relative;
 		display: inline-block;
 		-webkit-transition: -webkit-transform 0.3s;
@@ -65,7 +59,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 		transition: transform 0.3s;
 	}
 
-	.cl-effect-5 h4 a span::before {
+	.cl-effect-5 a span::before {
 		position: absolute;
 		top: 100%;
 		content: attr(data-hover);
@@ -75,8 +69,8 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 		transform: translate3d(0,0,0);
 	}
 
-	.cl-effect-5 h4 a:hover span,
-	.cl-effect-5 h4 a:focus span {
+	.cl-effect-5 a:hover span,
+	.cl-effect-5 a:focus span {
 		color: #222222;
 		-webkit-transform: translateY(-100%);
 		-moz-transform: translateY(-100%);
@@ -87,24 +81,39 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 </head>
 
 <body>
-	<?php include '/nav.php';?>
+	<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.php">Control Panel</a>
+			</div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="index.php">Home</a></li>
+				<li><a href="#">Site</a></li>
+      			<li><a href="#">Users</a></li>
+      			<li><a href="list-blogs.php">Blog Manager</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+        		<li><a href="../logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+      		</ul>
+		</div>
+	</nav>
 	<div class="container text-center">
 		<h2 class="title2">I Love Science</h2>
 		<div class="row">
 			<section>
 				<nav class="cl-effect-5">
 					<div class="col-sm-4">
-						<a href="add-blog.php"><span class="glyphicon glyphicon-plus-sign logo"></span></a>
+						<span class="glyphicon glyphicon-plus-sign logo"></span>
 						<br>
 						<h4><a href="add-blog.php"><span data-hover="Add a new Blog">Add a new Blog</a></h4>
 					</div>
 					<div class="col-sm-4">
-						<a href="list-blogs.php"><span class="glyphicon glyphicon-list-alt logo"></span></a>
+						<span class="glyphicon glyphicon-list-alt logo"></span>
 						<br>
 						<h4><a href="list-blogs.php"><span data-hover="All the Blogs">All the Blogs</a></h4>
 					</div>
 					<div class="col-sm-4">
-						<a href="#"><span class="glyphicon glyphicon-user logo"></span></a>
+						<span class="glyphicon glyphicon-user logo"></span>
 						<br>
 						<h4><a href="#"><span data-hover="User Manager">User Manager</a></h4>
 					</div>

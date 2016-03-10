@@ -1,10 +1,11 @@
 <?php
 session_start();
+
+require_once '../../config.php';
+
 if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
 	header("location:../login.php");
 }
-
-print_r($_SESSION);
 
 ?>
 
@@ -14,9 +15,11 @@ print_r($_SESSION);
   <title>Blog List</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/love-science/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <script src="/love-science/node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="/love-science/node_modules/angular/angular.min.js"></script>
+  <script src="js/app.js"></script>
+
   <style>
   	.table-bordered{
 
@@ -33,30 +36,20 @@ print_r($_SESSION);
   		margin-bottom:2%;
   	}
 
+  	.navbar{
+  		border-radius: 0;
+  	}
+
   </style>
 </head>
-
 <body>
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="index.php">Control Panel</a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="index.php">Home</a></li>
-				<li><a href="#">Site</a></li>
-      			<li><a href="#">Users</a></li>
-      			<li><a href="list-blogs.html">Blog Manager</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-        		<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
-      		</ul>
-		</div>
-	</nav>
+
+	<?php require_once ADMIN . '/frontend/partials/common/nav.php';?>
+
 	<div class="container">
 
 		<h2>Blogs</h2>
-		<a href="addBlog.html" <button type="button" class="addblog btn btn-default">Add a new blog</button></a>
+		<a href="add-blog.php" <button type="button" class="addblog btn btn-default">Add a new blog</button></a>
 		<table class="table table-bordered">
 			<thead>
 				<tr>
@@ -77,51 +70,9 @@ print_r($_SESSION);
 					<td>Cell 4</td>
 					<td>Cell 4</td>
 				</tr>
-				<tr>
-					<td>2nd blog post</td>
-					<td>Cell 5</td>
-					<td>Cell 6</td>
-					<td>Cell 7</td>
-					<td>Cell 4</td>
-					<td>Cell 4</td>
-				</tr>
-				<tr>
-					<td>3rd blog post</td>
-					<td>Cell 8</td>
-					<td>Cell 9</td>
-					<td>Cell 10</td>
-					<td>Cell 4</td>
-					<td>Cell 4</td>
-				</tr>
-				<tr>
-					<td>4th blog post</td>
-					<td>Cell 11</td>
-					<td>Cell 12</td>
-					<td>Cell 13</td>
-					<td>Cell 4</td>
-					<td>Cell 4</td>
-				</tr>
+
 		</table>
-
-
 	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>
