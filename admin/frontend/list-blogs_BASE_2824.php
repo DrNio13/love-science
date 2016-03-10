@@ -1,8 +1,5 @@
 <?php
 session_start();
-
-require_once '../../config.php';
-
 if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
 	header("location:../login.php");
 }
@@ -19,7 +16,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   <script src="/love-science/node_modules/jquery/dist/jquery.min.js"></script>
   <script src="/love-science/node_modules/angular/angular.min.js"></script>
   <script src="js/app.js"></script>
-
+<<<<<<< HEAD
   <style>
   	.table-bordered{
 
@@ -42,12 +39,10 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 
   </style>
 </head>
+
 <body>
-<<<<<<< HEAD
 	<?php include '/partials/common/nav.php';?>
 =======
-	<?php require_once ADMIN . '/frontend/partials/common/nav.php';?>
-
 </head>
 
 <body>
@@ -69,8 +64,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 		</div>
 	</nav>
 
-
->>>>>>> 3690936cb29680039d8d39c67ffc2ad70c8dc7dd
+>>>>>>> 7b3cbb2cc1e8b264667ac8128bd0b51cd10571ed
 	<div class="container">
 
 		<h2>Blogs</h2>

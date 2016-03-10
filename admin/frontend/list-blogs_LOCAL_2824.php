@@ -1,8 +1,5 @@
 <?php
 session_start();
-
-require_once '../../config.php';
-
 if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
 	header("location:../login.php");
 }
@@ -19,7 +16,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   <script src="/love-science/node_modules/jquery/dist/jquery.min.js"></script>
   <script src="/love-science/node_modules/angular/angular.min.js"></script>
   <script src="js/app.js"></script>
-
+<<<<<<< HEAD
   <style>
   	.table-bordered{
 
@@ -43,34 +40,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   </style>
 </head>
 <body>
-<<<<<<< HEAD
 	<?php include '/partials/common/nav.php';?>
-=======
-	<?php require_once ADMIN . '/frontend/partials/common/nav.php';?>
-
-</head>
-
-<body>
-
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="index.php">Control Panel</a>
-			</div>
-			<ul class="nav navbar-nav">
-				<li class="active"><a href="index.php">Home</a></li>
-				<li><a href="#">Site</a></li>
-      			<li><a href="#">Users</a></li>
-      			<li><a href="list-blogs.html">Blog Manager</a></li>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
-        		<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
-      		</ul>
-		</div>
-	</nav>
-
-
->>>>>>> 3690936cb29680039d8d39c67ffc2ad70c8dc7dd
 	<div class="container">
 
 		<h2>Blogs</h2>

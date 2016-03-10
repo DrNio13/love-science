@@ -42,10 +42,8 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 
   </style>
 </head>
+
 <body>
-<<<<<<< HEAD
-	<?php include '/partials/common/nav.php';?>
-=======
 	<?php require_once ADMIN . '/frontend/partials/common/nav.php';?>
 
 </head>
@@ -70,7 +68,6 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 	</nav>
 
 
->>>>>>> 3690936cb29680039d8d39c67ffc2ad70c8dc7dd
 	<div class="container">
 
 		<h2>Blogs</h2>
