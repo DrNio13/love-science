@@ -4,25 +4,49 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<link rel="stylesheet" type="text/css" href="/love-science/assets/sass/style.css">
-	<script src="/love-science/node_modules/angular/angular.min.js"></script>
-	<script src="/love-science/node_modules/angular-route/angular-route.min.js"></script>
-	<script src="/love-science/app/app.js" type="text/javascript"></script>
-	<script src="/love-science/app/controllers.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="/love-science/node_modules/bootstrap/dist/css/bootstrap.min.css">
 </head>
 <body>
 
-<nav>
-	<ul>
-		<li><a href="#" title="">Home</a></li>
-		<!-- <li><a href="#/categories" title="">Categories</a></li> -->
-		<li><a href="#/gadgets" title="">Gadgets</a></li>
-	</ul>
-</nav>
+<header class="main-header container-fluid">
+	<div class="row">
+
+		<button class="hamburger-btn col-xs-2 col-sm-1 col-md-1">menu</button>
+
+		<nav class="main-nav col-md-4">
+			<ul>
+				<li class="main-nav-item">
+					<a href="#" title="">Home</a>
+				</li>
+			</ul>
+		</nav>
+
+		<figure class="logo-image col-sm-2 col-md-2">
+			img
+		</figure>
+
+		<div class="col-sm-5 col-md-5">
+			<ul class="useful-btns">
+				<li class="search-item"><input type="search" name="search" value="" placeholder="search.."></li>
+				<li class="social-item">
+					<div class="social-wrapper">
+						<a class="social-link" href="#" title="">f</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</header>
 
 <div ng-view></div>
 
 <footer>
 </footer>
+
+<script src="/love-science/node_modules/angular/angular.min.js"></script>
+<script src="/love-science/node_modules/angular-route/angular-route.min.js"></script>
+<script src="/love-science/app/app.js" type="text/javascript"></script>
+<script src="/love-science/app/controllers.js" type="text/javascript"></script>
 
 </body>
 </html>
