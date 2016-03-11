@@ -46,33 +46,8 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 	<?php require_once ADMIN . '/frontend/partials/common/nav.php';?>
 	<div class="container">
 
-		<h2>Blogs</h2>
-		<div class="row">
-			<div class="col-md-3">
-				<a href="add-blog.php" <button type="button" class="addblog btn btn-default">Add a new article</button></a>
-			</div>
-			<div class="col-md-offset-6 col-md-3">
-				<input ng-model="searchArticle" type="search" class="form-control pull-right" placeholder="search..">
-			</div>
-		</div>
-		<table class="table table-bordered">
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Title</th>
-					<th>Content</th>
-					<th>Category</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="article in allArticles | filter:searchArticle">
-					<td>{{article.id}}</td>
-					<td>{{article.title}}</td>
-					<td>{{article.content}}</td>
-					<td>{{article.category}}</td>
-				</tr>
+		<h2>Users</h2>
 
-		</table>
 	</div>
 
 </body>

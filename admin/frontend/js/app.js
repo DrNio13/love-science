@@ -1,19 +1,15 @@
-$(document).ready(function() {
+var adminApp = angular.module('adminApp', []);
 
-	// Get the results
-	$.ajax({
-		url: '/love-science/system/api/get-articles.php',
-		type: 'GET'
-	})
-	.done(function(data) {
-		console.log(data);
-	})
-	.fail(function() {
-		console.log("error");
-	})
-	.always(function() {
-		console.log("complete");
+adminApp.controller('RootController', ['$scope', '$http', function ($scope, $http) {
+	$scope.allArticles = [];
+
+	$http({
+		method: 'GET',
+		url : '/love-science/system/api/get-articles.php'
+	}).then(function doneGetArticles(response){
+		$scope.allArticles = response.data;
+		console.log(response.data);
+	}, function failGetArticles(response){
+		console.log(response);
 	});
-
-	
-});
+}]);
