@@ -1,27 +1,17 @@
 <?php
 session_start();
-require '../../config.php';
-require_once SYSTEM . '/classes/article_class.php';
-
 if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
 	header("location:../login.php");
 }
 
-// $article = new Article('prwto', 'prwto', 'article');
-// $a = new Article('prwto', 'xxx', 'asdasdasd');
-
-// if ($article->isArticleExisting()) {
-// 	echo $article->isArticleExisting();
-// }
-
-// print $a->updateArticle();
+print_r($_SESSION);
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Add an Article</title>
+  <title>Add a Blog</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
@@ -44,24 +34,13 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   });
 
   </script>
-  <style>
-
-  .navbar{
-    border-radius: 0;
-  }
-
-  #heading{
-    color: #fff;
-  }
-
-  </style>
 </head>
 
 <body>
 	<nav class="navbar navbar-inverse">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="index.php">Control Panel</a>
+				<a class="navbar-brand" href="control_panel.html">Control Panel</a>
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -70,10 +49,10 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 			</div>
       <div class="collapse navbar-collapse" id="myNavbar">
   			<ul class="nav navbar-nav">
-  				<li class="active"><a href="index.php">Home</a></li>
+  				<li class="active"><a href="control_panel.html">Home</a></li>
   				<li><a href="#">Site</a></li>
         			<li><a href="#">Users</a></li>
-        			<li><a href="list-blogs.php">Blog Manager</a></li>
+        			<li><a href="list-blogs.html">Blog Manager</a></li>
   			</ul>
   			<ul class="nav navbar-nav navbar-right">
           		<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
@@ -81,35 +60,32 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
       </div>
 		</div>
     <div class="container-fluid bg-1">
-      <h3 id="heading"><span class="glyphicon glyphicon-pencil"></span>Blog Manager : Add a new Blog</h3>
+      <h3><span class="glyphicon glyphicon-pencil"></span>Blog Manager : Add a new Blog</h3>
     </div>
 	</nav>
 
 <div class="container-fluid">
-
-
-    <form role="form" action="add-blog-success.php" method="post">
-
     <div class="row center-text">
         <div class="col-xs-3 col-xs-offset-3 col-sm-1 col-sm-offset-5">
-          <button class="btn btn-success" type="submit">Save</button>
+          <button type="button" class="btn btn-success">Save</button>
         </div>
         <div class="col-xs-3 col-sm-1">
           <a href='index.php' type="button" class="btn btn-danger">Cancel</a>
         </div>
     </div>
     <hr>
-
+    <br>
+    <form role="form">
       <div class="row">
         <div class="col-lg-10">
           <div class="form-group">
-              <input type="textarea" name="content" class="form-control" id="myTextarea">
+              <input type="textarea" class="form-control" id="myTextarea">
           </div>
         </div>
         <div class="col-lg-2">
           <div class="form-group">
             <label for="title" class="center-text">Title</label>
-            <input type="text" name="title" class="form-control" placeholder="Enter your Title">
+            <input type="text" class="form-control" placeholder="Enter your Title">
           </div>
           <br>
           <div class="form-group">
@@ -122,22 +98,22 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
           <br>
           <div class="form-group">
             <label for="metaTitle" class="center-text">Meta Title</label>
-            <input type="text" name="meta-title" class="form-control" placeholder="Enter your Meta Title">
+            <input type="text" class="form-control" placeholder="Enter your Meta Title">
           </div>
           <br>
           <div class="form-group">
             <label for="metaDescription" class="center-text">Meta Description</label>
-            <input type="text" name="meta-description" class="form-control" placeholder="Enter your Meta Description">
+            <input type="text" class="form-control" placeholder="Enter your Meta Description">
           </div>
           <br>
           <div class="form-group">
             <label for="metaKeywords" class="center-text">Meta Keywords</label>
-            <input type="text" name="meta-keywords" class="form-control" placeholder="Enter your Meta Keywords">
+            <input type="text" class="form-control" placeholder="Enter your Meta Keywords">
           </div>
           <br>
           <div class="form-group">
             <label for="category" class="center-text">Category</label>
-            <input type="text" name="category" class="form-control" placeholder="Enter your Category">
+            <input type="text" class="form-control" placeholder="Enter your Category">
           </div>
         </div>
       </div>

@@ -99,17 +99,17 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 					<div class="col-sm-4">
 						<a href="add-blog.php"><span class="glyphicon glyphicon-plus-sign logo"></span></a>
 						<br>
-						<h4><a href="add-blog.php"><span data-hover="Add a new Blog">Add a new Blog</a></h4>
+						<h4><a href="add-blog.php"><span data-hover="Add a new Article">Add a new Article</a></h4>
 					</div>
 					<div class="col-sm-4">
 						<a href="list-blogs.php"><span class="glyphicon glyphicon-list-alt logo"></span></a>
 						<br>
-						<h4><a href="list-blogs.php"><span data-hover="All the Blogs">All the Blogs</a></h4>
+						<h4><a href="list-blogs.php"><span data-hover="All Articles">All Articles</a></h4>
 					</div>
 					<div class="col-sm-4">
 						<a href="#"><span class="glyphicon glyphicon-user logo"></span></a>
 						<br>
-						<h4><a href="#"><span data-hover="User Manager">User Manager</a></h4>
+						<h4><a href="#"><span data-hover="Users Manager">Users Manager</a></h4>
 					</div>
 				</nav>
 			</section>

@@ -2,11 +2,9 @@
 session_start();
 
 require_once '../../config.php';
-
 if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
 	header("location:../login.php");
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -42,11 +40,12 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 
   </style>
 </head>
-<body >
+<body>
 	<?php require_once ADMIN . '/frontend/partials/common/nav.php';?>
+
 	<div class="container">
 
-		<h2>Blogs</h2>
+		<h2>Articles</h2>
 		<div class="row">
 			<div class="col-md-3">
 				<a href="add-blog.php" <button type="button" class="addblog btn btn-default">Add a new article</button></a>
