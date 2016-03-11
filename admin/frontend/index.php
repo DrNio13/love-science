@@ -109,7 +109,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 					<div class="col-sm-4">
 						<a href="#"><span class="glyphicon glyphicon-user logo"></span></a>
 						<br>
-						<h4><a href="#"><span data-hover="Users Manager">Users Manager</a></h4>
+						<h4><a href="users.php"><span data-hover="Users">All Users</a></h4>
 					</div>
 				</nav>
 			</section>

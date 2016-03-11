@@ -12,7 +12,7 @@
 			<ul class="nav navbar-nav">
 				<li class="active"><a href="index.php">Home</a></li>
 				<li><a href="users.php">Users</a></li>
-				<li><a href="list-blogs.php">Articles Manager</a></li>
+				<li><a href="list-blogs.php">Articles</a></li>
 				</ul>
 			<ul class="nav navbar-nav navbar-right">
 				<li><a href="">Hi <?php echo $_SESSION['username'] ?></a></li>
