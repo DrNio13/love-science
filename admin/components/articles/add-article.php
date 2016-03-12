@@ -4,7 +4,7 @@ require '../../../config.php';
 require_once SYSTEM . '/classes/article_class.php';
 
 if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
-	header("location: ../../login.php");
+	header("location: ../../actions/login.php");
 }
 
 // $article = new Article('prwto', 'prwto', 'article');
@@ -53,7 +53,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   <div class="container-fluid">
 
   <h1>Add a new Article</h1>
-    <form role="form" action="add-blog-success.php" method="post">
+    <form role="form" action="article-submit.php" method="post">
 
     <div class="row center-text">
         <div class="col-xs-3 col-xs-offset-3 col-sm-1 col-sm-offset-4">

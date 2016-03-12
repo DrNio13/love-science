@@ -108,7 +108,7 @@ if (isset($username) && isset($password)) {
 
 		// not valid username or password
 		http_response_code(404);
-		header("location:login.php");
+		header("location: actions/login.php");
 		die("not valid username or password");
 	}
 } else {

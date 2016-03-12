@@ -3,7 +3,7 @@ session_start();
 
 require_once '../../../config.php';
 if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
-	header("location:../login.php");
+	header("location: ../../actions/login.php");
 }
 ?>
 
@@ -16,7 +16,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   <link rel="stylesheet" href="/love-science/node_modules/bootstrap/dist/css/bootstrap.min.css">
   <script src="/love-science/node_modules/jquery/dist/jquery.min.js"></script>
   <script src="/love-science/node_modules/angular/angular.min.js"></script>
-  <script src="js/app.js"></script>
+  <script src="<?php echo FRONTEND_CMS_URL . '/js/app.js'; ?>"></script>
 
   <style>
   	.table-bordered{

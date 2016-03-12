@@ -4,7 +4,7 @@ session_start();
 require '../../config.php';
 
 if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
-	header("location:../actions/login.php");
+	header("location: ../actions/login.php");
 }
 
 ?>
