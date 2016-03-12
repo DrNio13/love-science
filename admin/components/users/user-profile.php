@@ -8,7 +8,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="adminApp" ng-controller="UserController">
 <head>
   <title>Admin - User Profile</title>
   <meta charset="UTF-8">
@@ -16,7 +16,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   <link rel="stylesheet" href="/love-science/node_modules/bootstrap/dist/css/bootstrap.min.css">
   <script src="/love-science/node_modules/jquery/dist/jquery.min.js"></script>
   <script src="/love-science/node_modules/angular/angular.min.js"></script>
-  <script src="js/app.js"></script>
+  <script src="<?php echo FRONTEND_CMS_URL . '/js/app.js'; ?>"></script>
 
   <style>
     .table-bordered{
@@ -48,7 +48,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
     td a:hover{
       color: inherit;
     }
-    
+
 
   </style>
 </head>

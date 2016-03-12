@@ -25,28 +25,12 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="sass/style.css" type="text/css">
+  <link rel="stylesheet" href="<?php echo FRONTEND_CMS_URL . '/sass/style.css'; ?>" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript" src='//cdn.tinymce.com/4/tinymce.min.js'></script>
   <script src="/love-science/node_modules/angular/angular.min.js"></script>
   <script src="<?php echo FRONTEND_CMS_URL . '/js/app.js'; ?>"></script>
-
-  <script>
-    tinymce.init({
-      selector: '#myTextarea',
-      theme: 'modern',
-      width: '100%',
-      height: 400,
-      plugins: [
-          'advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker',
-          'searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking',
-          'save table contextmenu directionality emoticons template paste textcolor'
-      ],
-      toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image | print preview media fullpage | forecolor backcolor emoticons'
-  });
-
-  </script>
 </head>
 
 <body>
@@ -74,7 +58,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
       <div class="row">
         <div class="col-lg-10">
           <div class="form-group">
-            <input ng-model="article.content" type="textarea" name="content" class="form-control"  required >
+            <input id="#myTextarea" ng-model="article.content" type="textarea" name="content" class="form-control"  required >
           </div>
         </div>
         <div class="col-lg-2">
