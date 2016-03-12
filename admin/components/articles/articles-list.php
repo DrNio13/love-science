@@ -8,7 +8,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 ?>
 
 <!DOCTYPE html>
-<html lang="en" ng-app="adminApp" ng-controller="RootController">
+<html lang="en" ng-app="adminApp" ng-controller="ArticleController">
 <head>
   <title>Admin - Articles List</title>
   <meta charset="UTF-8">
