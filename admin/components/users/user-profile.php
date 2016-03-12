@@ -8,9 +8,9 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 ?>
 
 <!DOCTYPE html>
-<html lang="en" ng-app="adminApp" ng-controller="RootController">
+<html lang="en">
 <head>
-  <title>Admin - Users List</title>
+  <title>Admin - User Profile</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/love-science/node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -54,14 +54,14 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 </head>
 <body >
   <?php require_once ADMIN . '/partials/common/nav.php';?>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3">
-        <a href="#" <button type="button" class="addblog btn btn-default">Add a new User</button></a>
-      </div>
-      <div class="col-md-offset-6 col-md-3">
-        <input ng-model="searchArticle" type="search" class="form-control pull-right" placeholder="search..">
-      </div>
+  <div class="container-fluid">
+    <div class="row center-text">
+        <div class="col-xs-3 col-xs-offset-3 col-sm-1 col-sm-offset-4">
+          <button class="btn btn-success" type="submit">Save</button>
+        </div>
+        <div class="col-xs-3 col-sm-1">
+          <a href='delete.php' type="button" class="btn btn-danger">Delete</a>
+        </div>
     </div>
     <table class="table table-hover">
       <thead>
@@ -73,25 +73,25 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
         </tr>
         <tbody>
           <tr class="active">
-            <td><a href="user-profile.php">Dimitris</a></td>
+            <td><a href="#">Dimitris</a></td>
             <td>dimitris</td>
             <td>N/A</td>
             <td>N/A</td>
           </tr>
           <tr>
-            <td><a href="user-profile.php">George</a></td>
+            <td><a href="#">George</a></td>
             <td>george</td>
             <td>N/A</td>
             <td>N/A</td>
           </tr>
           <tr>
-            <td><a href="user-profile.php">George</a></td>
+            <td><a href="#">George</a></td>
             <td>george</td>
             <td>N/A</td>
             <td>N/A</td>
           </tr>
           <tr>
-            <td><a href="user-profile.php">George</a></td>
+            <td><a href="#">George</a></td>
             <td>george</td>
             <td>N/A</td>
             <td>N/A</td>
