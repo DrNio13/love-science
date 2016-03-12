@@ -4,7 +4,7 @@ require '../../config.php';
 require_once SYSTEM . '/classes/article_class.php';
 
 if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
-	header("location:../login.php");
+	header("location: ../../login.php");
 }
 
 // $article = new Article('prwto', 'prwto', 'article');
@@ -25,7 +25,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link rel="stylesheet" href="addBlog.css" type="text/css">
+  <link rel="stylesheet" href="sass/style.css" type="text/css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script type="text/javascript" src='//cdn.tinymce.com/4/tinymce.min.js'></script>
@@ -44,17 +44,6 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   });
 
   </script>
-  <style>
-
-  .navbar{
-    border-radius: 0;
-  }
-
-  #heading{
-    color: #fff;
-  }
-
-  </style>
 </head>
 
 <body>
@@ -73,7 +62,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   				<li class="active"><a href="index.php">Home</a></li>
   				<li><a href="#">Site</a></li>
         			<li><a href="#">Users</a></li>
-        			<li><a href="list-blogs.php">Blog Manager</a></li>
+        			<li><a href="list-blogs.php">Article Manager</a></li>
   			</ul>
   			<ul class="nav navbar-nav navbar-right">
           		<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
@@ -81,7 +70,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
       </div>
 		</div>
     <div class="container-fluid bg-1">
-      <h3 id="heading"><span class="glyphicon glyphicon-pencil"></span>Blog Manager : Add a new Blog</h3>
+      <h3 id="heading"><span class="glyphicon glyphicon-pencil"></span>Article Manager : Add a new Article</h3>
     </div>
 	</nav>
 
@@ -91,11 +80,14 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
     <form role="form" action="add-blog-success.php" method="post">
 
     <div class="row center-text">
-        <div class="col-xs-3 col-xs-offset-3 col-sm-1 col-sm-offset-5">
+        <div class="col-xs-3 col-xs-offset-3 col-sm-1 col-sm-offset-4">
           <button class="btn btn-success" type="submit">Save</button>
         </div>
         <div class="col-xs-3 col-sm-1">
-          <a href='index.php' type="button" class="btn btn-danger">Cancel</a>
+          <a href='index.php' type="button" class="btn btn-default">Cancel</a>
+        </div>
+        <div class="col-xs-3 col-sm-1">
+          <a href='delete.php' type="button" class="btn btn-danger">Delete</a>
         </div>
     </div>
     <hr>

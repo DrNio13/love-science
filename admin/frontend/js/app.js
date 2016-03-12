@@ -13,3 +13,7 @@ adminApp.controller('RootController', ['$scope', '$http', function ($scope, $htt
 		console.log(response);
 	});
 }]);
+
+adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $http) {
+	
+}])

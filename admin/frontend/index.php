@@ -97,19 +97,19 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 			<section>
 				<nav class="cl-effect-5">
 					<div class="col-sm-4">
-						<a href="add-blog.php"><span class="glyphicon glyphicon-plus-sign logo"></span></a>
+						<a href="articles/add.php"><span class="glyphicon glyphicon-plus-sign logo"></span></a>
 						<br>
-						<h4><a href="add-blog.php"><span data-hover="Add a new Article">Add a new Article</a></h4>
+						<h4><a href="articles/add.php"><span data-hover="Add a new Article">Add a new Article</a></h4>
 					</div>
 					<div class="col-sm-4">
-						<a href="list-blogs.php"><span class="glyphicon glyphicon-list-alt logo"></span></a>
+						<a href="articles/list.php"><span class="glyphicon glyphicon-list-alt logo"></span></a>
 						<br>
-						<h4><a href="list-blogs.php"><span data-hover="All Articles">All Articles</a></h4>
+						<h4><a href="articles/list.php"><span data-hover="All Articles">All Articles</a></h4>
 					</div>
 					<div class="col-sm-4">
 						<a href="#"><span class="glyphicon glyphicon-user logo"></span></a>
 						<br>
-						<h4><a href="users.php"><span data-hover="Users">All Users</a></h4>
+						<h4><a href="users.php"><span data-hover="All Users">All Users</a></h4>
 					</div>
 				</nav>
 			</section>
