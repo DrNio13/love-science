@@ -48,6 +48,8 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 	<div class="container">
 
 		<h2>Articles</h2>
+		<span>Total articles: {{allArticles.length}}</span>
+		<hr>
 		<div class="row">
 			<div class="col-md-3">
 				<a href="add-article.php" <button type="button" class="addblog btn btn-default">Add a new article</button></a>
@@ -56,6 +58,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 				<input ng-model="searchArticle" type="search" class="form-control pull-right" placeholder="search..">
 			</div>
 		</div>
+		<br />
 		<table class="table table-bordered">
 			<thead>
 				<tr>
@@ -66,14 +69,19 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="article in allArticles | filter:searchArticle">
+				<tr ng-repeat="article in chunkedArticles | filter:searchArticle">
 					<td>{{article.id}}</td>
 					<td>{{article.title}}</td>
-					<td><p>{{article.content}}</p></td>
+					<td><p>{{article.parsed_content}}</p></td>
 					<td>{{article.category}}</td>
 				</tr>
-
 		</table>
+		<ul>
+			<li ng-repeat="number in paginationItems">
+				<button ng-click="paginateArticles(number,allArticles,maxArticles)">{{number + 1}}
+				</button>
+			</li>
+		</ul>
 	</div>
 
 </body>
