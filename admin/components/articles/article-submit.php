@@ -3,18 +3,21 @@
 require_once "../../../config.php";
 require_once SYSTEM . "/classes/article_class.php";
 
-if (!empty($_POST["content"]) && !empty($_POST["title"]) && !empty($_POST["category"])) {
+$postdata = file_get_contents("php://input");
+$data = json_decode($postdata);
 
-	$article = new Article($_POST["title"], $_POST["category"], $_POST["content"]);
+if (!empty($data->title) && !empty($data->content) && !empty($data->content)) {
+
+	$article = new Article($data->title, $data->category, $data->content);
 
 	if ($article->articleExists()) {
 		$article->updateArticle();
 		http_response_code("200");
-		echo json_encode(array("message" => "Article with title " . $article->getArticleName() . " has been updated."));
+		echo json_encode(array("message" => "Article with title " . $article->getArticleName() . " as been updated."));
 	} else {
 		$article->addNewArticle();
 		http_response_code("200");
-		echo json_encode(array("message" => "Article added to the database"));
+		echo json_encode(array("message" => "Article with title " . $article->getArticleName() . " added to the database"));
 	}
 
 } else {

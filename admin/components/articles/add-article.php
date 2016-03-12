@@ -56,11 +56,11 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   <div class="container-fluid">
 
   <h1>Add a new Article</h1>
-    <form novalidate role="form">
+    <form novalidate role="form" class="css-form">
 
     <div class="row center-text">
         <div class="col-xs-3 col-xs-offset-3 col-sm-1 col-sm-offset-4">
-          <button ng-click="saveArticle()" class="btn btn-success" type="submit">Save</button>
+          <button ng-click="saveArticle();" class="btn btn-success" type="submit">Save</button>
         </div>
         <div class="col-xs-3 col-sm-1">
           <a href='<?php echo FRONTEND_CMS_URL . '/index.php'; ?>' type="button" class="btn btn-default">Cancel</a>
@@ -74,13 +74,13 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
       <div class="row">
         <div class="col-lg-10">
           <div class="form-group">
-              <input ng-model="article.content" type="textarea" name="content" class="form-control" id="myTextarea">
+            <input ng-model="article.content" type="textarea" name="content" class="form-control"  required >
           </div>
         </div>
         <div class="col-lg-2">
           <div class="form-group">
             <label for="title" class="center-text">Title</label>
-            <input ng-model="article.title" type="text" name="title" class="form-control" placeholder="Enter your Title">
+            <input ng-model="article.title" type="text" name="title" class="form-control" placeholder="Enter your Title" required />
           </div>
           <br>
           <div class="form-group">
@@ -93,22 +93,22 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
           <br>
           <div class="form-group">
             <label for="metaTitle" class="center-text">Meta Title</label>
-            <input ng-model="article.meta-title" type="text" name="meta-title" class="form-control" placeholder="Enter your Meta Title">
+            <input ng-model="article.meta_title" type="text" name="meta-title" class="form-control" placeholder="Enter your Meta Title">
           </div>
           <br>
           <div class="form-group">
             <label for="metaDescription" class="center-text">Meta Description</label>
-            <input ng-model="article.meta-description" type="text" name="meta-description" class="form-control" placeholder="Enter your Meta Description">
+            <input ng-model="article.meta_description" type="text" name="meta-description" class="form-control" placeholder="Enter your Meta Description">
           </div>
           <br>
           <div class="form-group">
             <label for="metaKeywords" class="center-text">Meta Keywords</label>
-            <input ng-model="article.meta-keywords" type="text" name="meta-keywords" class="form-control" placeholder="Enter your Meta Keywords">
+            <input ng-model="article.meta_keywords" type="text" name="meta-keywords" class="form-control" placeholder="Enter your Meta Keywords">
           </div>
           <br>
           <div class="form-group">
             <label for="category" class="center-text">Category</label>
-            <input ng-model="article.category" type="text" name="category" class="form-control" placeholder="Enter your Category">
+            <input ng-model="article.category" type="text" name="category" class="form-control" placeholder="Enter your Category" required />
           </div>
         </div>
       </div>
