@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once '../../config.php';
+require_once '../../../config.php';
 
 if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
 	header("location:../login.php");
@@ -12,7 +12,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 <!DOCTYPE html>
 <html lang="en" ng-app="adminApp" ng-controller="RootController">
 <head>
-  <title>Blog List</title>
+  <title>Admin - Users List</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/love-science/node_modules/bootstrap/dist/css/bootstrap.min.css">
@@ -43,7 +43,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   </style>
 </head>
 <body >
-  <?php require_once ADMIN . '/frontend/partials/common/nav.php';?>
+  <?php require_once ADMIN . '/partials/common/nav.php';?>
   <div class="container">
 
     <h2>Users</h2>

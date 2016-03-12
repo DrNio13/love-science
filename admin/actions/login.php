@@ -1,4 +1,4 @@
-<?php require_once '../config.php';?>
+<?php require_once '../../config.php';?>
 
 <?php
 // require_once DOCUMENT_ROOT . '/configuration/local-config.php';
@@ -25,11 +25,11 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Login - Yes I Love Science</title>
+	<title>Admin - Login Yes I Love Science</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-  	<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  	<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
 
-	<link rel="stylesheet" href="frontend/sass/style.css">
+	<link rel="stylesheet" href="../frontend/sass/style.css">
 </head>
 <body>
 
@@ -37,7 +37,7 @@
 
   		<h2 class="form-signin-heading">Admin System Login</h2>
 
-  		<form class="form-horizontal" name="myform" role="form" action="index.php" method="POST">
+  		<form class="form-horizontal" name="myform" role="form" action="../index.php" method="POST">
     		<div class="form-group">
       			<label class="control-label col-sm-4" for="user">Username:</label>
       				<div class="col-sm-4">
