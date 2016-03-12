@@ -1,6 +1,10 @@
 var adminApp = angular.module('adminApp', []);
 
 adminApp.controller('RootController', ['$scope', '$http', function ($scope, $http) {
+	
+}]);
+
+adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $http) {
 	$scope.allArticles = [];
 
 	$http({
@@ -12,8 +16,8 @@ adminApp.controller('RootController', ['$scope', '$http', function ($scope, $htt
 	}, function failGetArticles(response){
 		console.log(response);
 	});
-}]);
+}])
 
-adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $http) {
+adminApp.controller('UserController', ['$scope', '$http', function ($scope, $http) {
 	
 }])

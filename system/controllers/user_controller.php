@@ -2,19 +2,19 @@
 
 require_once '../classes/database_class.php';
 
-class PagesController {
+class UserController {
 
 	public function __construct() {
 
 	}
 
-	public function showAll() {
+	public function showAllUsers() {
 
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		try {
-			$statement = $pdo->prepare("SELECT * FROM pages");
+			$statement = $pdo->prepare("SELECT id,username,email,administrator,blocked FROM users");
 			$statement->execute();
 		} catch (Exception $e) {
 			Database::disconnect();
