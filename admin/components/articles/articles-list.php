@@ -16,6 +16,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   <link rel="stylesheet" href="/love-science/node_modules/bootstrap/dist/css/bootstrap.min.css">
   <script src="/love-science/node_modules/jquery/dist/jquery.min.js"></script>
   <script src="/love-science/node_modules/angular/angular.min.js"></script>
+  <script type="text/javascript" src="/love-science/node_modules/ui-tinymce/src/tinymce.js"></script>
   <script src="<?php echo FRONTEND_CMS_URL . '/js/app.js'; ?>"></script>
 
   <style>
@@ -68,7 +69,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 				<tr ng-repeat="article in allArticles | filter:searchArticle">
 					<td>{{article.id}}</td>
 					<td>{{article.title}}</td>
-					<td>{{article.content}}</td>
+					<td><p>{{article.content}}</p></td>
 					<td>{{article.category}}</td>
 				</tr>
 

@@ -1,4 +1,4 @@
-var adminApp = angular.module('adminApp', []);
+var adminApp = angular.module('adminApp', ['ui.tinymce']);
 
 adminApp.controller('RootController', ['$scope', '$http', function ($scope, $http) {
 	
@@ -19,6 +19,14 @@ adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $
 		console.log(response);
 	});
 
+	$scope.tinymceOptions = {
+	    inline: false,
+	    plugins : 'advlist autolink link image lists charmap print preview',
+	    skin: 'lightgray',
+	    theme : 'modern',
+	    height : 400
+  	};
+
 	// POST article to backend service saving/updating to server
 	$scope.postArticle = function(){
 		$http({
@@ -36,6 +44,7 @@ adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $
 	$scope.saveArticle = function() {
 		$scope.postArticle();
 	};
+
 }]);
 
 adminApp.controller('UserController', ['$scope', '$http', function ($scope, $http) {
