@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../../config.php';
+require '../../../config.php';
 require_once SYSTEM . '/classes/article_class.php';
 
 if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
@@ -47,36 +47,12 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 </head>
 
 <body>
-	<nav class="navbar navbar-inverse">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="index.php">Control Panel</a>
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-			</div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-  			<ul class="nav navbar-nav">
-  				<li class="active"><a href="index.php">Home</a></li>
-  				<li><a href="#">Site</a></li>
-        			<li><a href="#">Users</a></li>
-        			<li><a href="list-blogs.php">Article Manager</a></li>
-  			</ul>
-  			<ul class="nav navbar-nav navbar-right">
-          		<li><a href="#"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
-        		</ul>
-      </div>
-		</div>
-    <div class="container-fluid bg-1">
-      <h3 id="heading"><span class="glyphicon glyphicon-pencil"></span>Article Manager : Add a new Article</h3>
-    </div>
-	</nav>
 
-<div class="container-fluid">
+  <?php require_once PARTIALS_CMS . '/common/nav.php';?>
 
+  <div class="container-fluid">
 
+  <h1>Add a new Article</h1>
     <form role="form" action="add-blog-success.php" method="post">
 
     <div class="row center-text">
@@ -84,7 +60,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
           <button class="btn btn-success" type="submit">Save</button>
         </div>
         <div class="col-xs-3 col-sm-1">
-          <a href='index.php' type="button" class="btn btn-default">Cancel</a>
+          <a href='<?php echo FRONTEND_CMS_URL . '/index.php'; ?>' type="button" class="btn btn-default">Cancel</a>
         </div>
         <div class="col-xs-3 col-sm-1">
           <a href='delete.php' type="button" class="btn btn-danger">Delete</a>

@@ -90,26 +90,28 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 </head>
 
 <body>
+
 	<?php require_once PARTIALS_CMS . '/common/nav.php';?>
+
 	<div class="container text-center">
 		<h2 class="title2">I Love Science</h2>
 		<div class="row">
 			<section>
 				<nav class="cl-effect-5">
 					<div class="col-sm-4">
-						<a href="<?php COMPONENTS_CMS_URL . '/articles/add-article.php';?>"><span class="glyphicon glyphicon-plus-sign logo"></span></a>
+						<a href="<?php echo COMPONENTS_CMS_URL . '/articles/add-article.php'; ?>"><span class="glyphicon glyphicon-plus-sign logo"></span></a>
 						<br>
-						<h4><a href="<?php COMPONENTS_CMS_URL . '/articles/add-article.php';?>"><span data-hover="Add a new Article">Add a new Article</a></h4>
+						<h4><a href="<?php echo COMPONENTS_CMS_URL . '/articles/add-article.php'; ?>"><span data-hover="Add a new Article">Add a new Article</a></h4>
 					</div>
 					<div class="col-sm-4">
-						<a href="components/articles/articles-list.php"><span class="glyphicon glyphicon-list-alt logo"></span></a>
+						<a href="<?php echo COMPONENTS_CMS_URL . '/articles/articles-list.php'; ?>"><span class="glyphicon glyphicon-list-alt logo"></span></a>
 						<br>
-						<h4><a href="components/articles/articles-list.php"><span data-hover="All Articles">All Articles</a></h4>
+						<h4><a href="<?php echo COMPONENTS_CMS_URL . '/articles/articles-list.php'; ?>"><span data-hover="All Articles">All Articles</a></h4>
 					</div>
 					<div class="col-sm-4">
-						<a href="#"><span class="glyphicon glyphicon-user logo"></span></a>
+						<a href="<?php echo COMPONENTS_CMS_URL . '/users/users-list.php'; ?>"><span class="glyphicon glyphicon-user logo"></span></a>
 						<br>
-						<h4><a href="components/users/users-list.php"><span data-hover="All Users">All Users</a></h4>
+						<h4><a href="<?php echo COMPONENTS_CMS_URL . '/users/users-list.php'; ?>"><span data-hover="All Users">All Users</a></h4>
 					</div>
 				</nav>
 			</section>

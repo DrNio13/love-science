@@ -41,6 +41,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   </style>
 </head>
 <body>
+
 	<?php require_once PARTIALS_CMS . '/common/nav.php';?>
 
 	<div class="container">
@@ -48,7 +49,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 		<h2>Articles</h2>
 		<div class="row">
 			<div class="col-md-3">
-				<a href="add-blog.php" <button type="button" class="addblog btn btn-default">Add a new article</button></a>
+				<a href="add-article.php" <button type="button" class="addblog btn btn-default">Add a new article</button></a>
 			</div>
 			<div class="col-md-offset-6 col-md-3">
 				<input ng-model="searchArticle" type="search" class="form-control pull-right" placeholder="search..">
