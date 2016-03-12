@@ -6,6 +6,7 @@ adminApp.controller('RootController', ['$scope', '$http', function ($scope, $htt
 
 adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $http) {
 	$scope.allArticles = [];
+	// $scope.article = {};
 
 	$http({
 		method: 'GET',
@@ -16,6 +17,10 @@ adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $
 	}, function failGetArticles(response){
 		console.log(response);
 	});
+
+	// $scope.saveArticle = function(){
+	// 	console.log($scope.article);
+	// };
 }])
 
 adminApp.controller('UserController', ['$scope', '$http', function ($scope, $http) {
