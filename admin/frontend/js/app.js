@@ -1,20 +1,28 @@
 var adminApp = angular.module('adminApp', ['ui.tinymce']);
 
-// adminApp.factory('articleFactory', ['$http', function($http) {
+adminApp.factory('serverDataFactory', ['$http', function($http, url, data) {
 
-//     var urlBase =  'services/edit_article.php' //'/api/customers';
-//     var articleFactory = {};
+    var urlBase =  url; //'/api/customers';
+    var serverDataFactory = {};
 
-//     articleFactory.getArticleById = function () {
-//         return $http({
-// 			method: 'POST',
-// 			url : urlBase,
-// 			data : articleId
-// 		});
-//     };
+    serverDataFactory.postData = function(url,data){
+    	return $http({
+    		method: 'POST',
+    		url: url,
+    		data: data
+    	});
+    };
 
-//     return articleFactory;
-// }]);
+    serverDataFactory.getData = function(url){
+    	return $http({
+    		method: 'GET',
+    		url: url
+    	});
+    };
+
+    return serverDataFactory;
+
+}]);
 
 var ContentParser = ContentParser || {};
 appContentParser = {
@@ -48,10 +56,12 @@ appPaginator = {
 
 
 adminApp.controller('RootController', ['$scope', '$http', function ($scope, $http) {
+
+	dataFactory.skato('dog');
 	
 }]);
 
-adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $http) {
+adminApp.controller('ArticleController', ['$scope', '$http', 'serverDataFactory', function ($scope, $http, serverDataFactory) {
 	$scope.allArticles = [];
 	$scope.article = {};
 	$scope.articlesIndex = 0;
@@ -59,10 +69,8 @@ adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $
 	$scope.paginationItems = [];
 
 	// GET all articles
-	$http({
-		method: 'GET',
-		url : '/love-science/system/api/get-articles.php'
-	}).then(function successGetArticles(response){
+	serverDataFactory.getData('/love-science/system/api/get-articles.php')
+	.then(function successGetArticles(response){
 
 		appContentParser.parseArticleContent(response.data);
 		
@@ -86,13 +94,10 @@ adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $
 	    height: '400px'
   	};
 
-	// POST article to backend service saving/updating to server
+	// Send article to backend service for saving/updating
 	$scope.postArticle = function(){
-		$http({
-			method: 'POST',
-			url : 'article-submit.php',
-			data : angular.toJson($scope.article, true)
-		}).then(function successSumbit(response){
+		serverDataFactory.postData('article-submit.php',angular.toJson($scope.article, true))
+		.then(function successSubmit(response){
 			console.log(response);
 			window.alert(response.data.message + " :) ");
 		}, function failSubmit(response){
@@ -106,27 +111,21 @@ adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $
 
 }]);
 
-adminApp.controller('EditArticleController', ['$scope', '$http', function ($scope, $http) {
+adminApp.controller('EditArticleController', ['$scope', '$http', 'serverDataFactory', function ($scope, $http, serverDataFactory) {
 	$scope.article = {};
 	
-	$http({
-		method: 'POST',
-		url : 'services/edit_article.php',
-		data : articleId
-	}).then(function successGetArticleById(response){
+	// Get the article to be edited
+	serverDataFactory.postData('services/edit_article.php', articleId)
+	.then(function successGetArticleById(response){
 		$scope.article = response.data;
 	}, function failGetArticleById(response){
 		console.log(response);
 	});
 
-	// POST article to backend service saving/updating to server
+	// Send article to backend service for saving/updating
 	$scope.postArticle = function(){
-		
-		$http({
-			method: 'POST',
-			url : 'article-submit.php',
-			data : angular.toJson($scope.article, true)
-		}).then(function successSumbit(response){
+		serverDataFactory.postData('article-submit.php',angular.toJson($scope.article, true))
+		.then(function successSubmit(response){
 			console.log(response);
 			window.alert(response.data.message + " :) ");
 		}, function failSubmit(response){
@@ -137,6 +136,7 @@ adminApp.controller('EditArticleController', ['$scope', '$http', function ($scop
 	$scope.saveArticle = function() {
 		$scope.postArticle();
 	};
+
 
 }]);
 
