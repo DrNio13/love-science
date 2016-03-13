@@ -39,9 +39,4 @@ class ArticleController {
 		Database::disconnect();
 		echo json_encode($transformed);
 	}
-
-	public function editArticle() {
-		require_once '../classes/article_class.php';
-	}
-
 }

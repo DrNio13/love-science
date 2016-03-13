@@ -7,3 +7,4 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 }
 echo $_GET['id'];
 ?>
+
