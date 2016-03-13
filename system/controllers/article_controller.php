@@ -21,18 +21,23 @@ class ArticleController {
 			return $e->getMessage();
 		}
 
-		$data = $statement->fetchAll(PDO::FETCH_ASSOC);
-		$a = array();
+		$articles = $statement->fetchAll(PDO::FETCH_ASSOC);
 
-		// Remove html from content
-		foreach ($data as $key => $value) {
-			$replaced = strip_tags($value['content']);
-			$value['content'] = $replaced;
-			array_push($a, $value);
+		$transformed = array();
+
+		foreach ($articles as $key => $article) {
+			// Remove html from content
+			$replaced = strip_tags($article['content']);
+			$article['content'] = $replaced;
+
+			// Add short version of article content
+			$article['content_short'] = substr($article['content'], 0, 40);
+
+			array_push($transformed, $article);
 		}
 
 		Database::disconnect();
-		echo json_encode($a);
+		echo json_encode($transformed);
 	}
 
 }
