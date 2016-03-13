@@ -16,7 +16,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   <link rel="stylesheet" href="/love-science/node_modules/bootstrap/dist/css/bootstrap.min.css">
   <script src="/love-science/node_modules/jquery/dist/jquery.min.js"></script>
   <script src="/love-science/node_modules/angular/angular.min.js"></script>
-  <script type="text/javascript" src="/love-science/node_modules/ui-tinymce/src/tinymce.js"></script>
+  <script type="text/javascript" src="/love-science/node_modules/angular-ui-tinymce/dist/tinymce.min.js"></script>
   <script src="<?php echo FRONTEND_CMS_URL . '/js/app.js'; ?>"></script>
 
   <style>
@@ -71,8 +71,13 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 			<tbody>
 				<tr ng-repeat="article in chunkedArticles | filter:searchArticle">
 					<td>{{article.id}}</td>
+<<<<<<< HEAD
 					<td><a ng-href="edit-article.php?id={{article.id}}">{{article.title}}</a></td>
 					<td><p>{{article.parsed_content}}</p></td>
+=======
+					<td>{{article.title}}</td>
+					<td><p>{{article.content_short}}</p></td>
+>>>>>>> 5ac71f6f2fe58a27a13aef0dcf3361d6b04cd11b
 					<td>{{article.category}}</td>
 				</tr>
 		</table>
