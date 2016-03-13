@@ -70,15 +70,11 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 			</thead>
 			<tbody>
 				<tr ng-repeat="article in chunkedArticles | filter:searchArticle">
-					<td>{{article.id}}</td>
-<<<<<<< HEAD
+					<td><p>{{article.id}}</p></td>
+
 					<td><a ng-href="edit-article.php?id={{article.id}}">{{article.title}}</a></td>
-					<td><p>{{article.parsed_content}}</p></td>
-=======
-					<td>{{article.title}}</td>
 					<td><p>{{article.content_short}}</p></td>
->>>>>>> 5ac71f6f2fe58a27a13aef0dcf3361d6b04cd11b
-					<td>{{article.category}}</td>
+					<td><p>{{article.category}}</p></td>
 				</tr>
 		</table>
 		<ul class="pagination ">
