@@ -16,6 +16,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   <link rel="stylesheet" href="/love-science/node_modules/bootstrap/dist/css/bootstrap.min.css">
   <script src="/love-science/node_modules/jquery/dist/jquery.min.js"></script>
   <script src="/love-science/node_modules/angular/angular.min.js"></script>
+  <script type="text/javascript" src="/love-science/node_modules/ui-tinymce/src/tinymce.js"></script>
   <script src="<?php echo FRONTEND_CMS_URL . '/js/app.js'; ?>"></script>
 
   <style>
@@ -47,6 +48,8 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 	<div class="container">
 
 		<h2>Articles</h2>
+		<span>Total articles: {{allArticles.length}}</span>
+		<hr>
 		<div class="row">
 			<div class="col-md-3">
 				<a href="add-article.php" <button type="button" class="addblog btn btn-default">Add a new article</button></a>
@@ -55,7 +58,8 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 				<input ng-model="searchArticle" type="search" class="form-control pull-right" placeholder="search..">
 			</div>
 		</div>
-		<table class="table table-hover">
+		<br />
+		<table class="table table-bordered">
 			<thead>
 				<tr>
 					<th>ID</th>
@@ -65,14 +69,24 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="article in allArticles | filter:searchArticle">
+				<tr ng-repeat="article in chunkedArticles | filter:searchArticle">
 					<td>{{article.id}}</td>
 					<td>{{article.title}}</td>
-					<td>{{article.content}}</td>
+					<td><p>{{article.parsed_content}}</p></td>
 					<td>{{article.category}}</td>
 				</tr>
-
 		</table>
+		<ul class="pagination ">
+			<li ng-repeat="number in paginationItems track by $index">
+				<a ng-if="$first" ng-click="paginateArticles(0,allArticles,maxArticles)" href="#">
+				Start</a>
+				<a href="#" ng-click="paginateArticles(number,allArticles,maxArticles)">
+				{{number + 1}}
+				</a>
+				<a ng-if="$last" ng-click="paginateArticles( paginationItems.length - 1,allArticles,maxArticles)" href="#">
+				End</a>
+			</li>
+		</ul>
 	</div>
 
 </body>

@@ -22,3 +22,4 @@ define("ACTIONS_CMS_URL", BASE . '/admin/actions');
 define("COMPONENTS_CMS_URL", BASE . '/admin/components');
 define("FRONTEND_CMS_URL", BASE . '/admin/frontend');
 define("PARTIALS_CMS_URL", BASE . '/admin/partials');
+define("NODE_MODULES_CMS_URL", BASE . '/node_modules');
