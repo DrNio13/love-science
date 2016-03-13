@@ -6,7 +6,7 @@ require_once SYSTEM . "/classes/article_class.php";
 $postdata = file_get_contents("php://input");
 $data = json_decode($postdata);
 
-if (!empty($data->title) && !empty($data->content) && !empty($data->content)) {
+if (!empty($data->title) && !empty($data->category) && !empty($data->content)) {
 
 	$article = new Article($data->title, $data->category, $data->content);
 

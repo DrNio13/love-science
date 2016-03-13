@@ -4,7 +4,7 @@ var ContentParser = ContentParser || {};
 appContentParser = {
 	parseArticleContent: function(articles){
 		articles.forEach(function(article) {
-			article.parsed_content = article.content.replace('&nbsp;', '');
+			article.content_short = article.content_short.replace('&nbsp;', '');
 		});
 	}
 };
