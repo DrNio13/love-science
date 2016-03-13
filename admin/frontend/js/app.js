@@ -1,5 +1,21 @@
 var adminApp = angular.module('adminApp', ['ui.tinymce']);
 
+// adminApp.factory('articleFactory', ['$http', function($http) {
+
+//     var urlBase =  'services/edit_article.php' //'/api/customers';
+//     var articleFactory = {};
+
+//     articleFactory.getArticleById = function () {
+//         return $http({
+// 			method: 'POST',
+// 			url : urlBase,
+// 			data : articleId
+// 		});
+//     };
+
+//     return articleFactory;
+// }]);
+
 var ContentParser = ContentParser || {};
 appContentParser = {
 	parseArticleContent: function(articles){
@@ -72,6 +88,40 @@ adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $
 
 	// POST article to backend service saving/updating to server
 	$scope.postArticle = function(){
+		$http({
+			method: 'POST',
+			url : 'article-submit.php',
+			data : angular.toJson($scope.article, true)
+		}).then(function successSumbit(response){
+			console.log(response);
+			window.alert(response.data.message + " :) ");
+		}, function failSubmit(response){
+			window.alert(response.data.error + " :( ");
+		});
+	};
+
+	$scope.saveArticle = function() {
+		$scope.postArticle();
+	};
+
+}]);
+
+adminApp.controller('EditArticleController', ['$scope', '$http', function ($scope, $http) {
+	$scope.article = {};
+	
+	$http({
+		method: 'POST',
+		url : 'services/edit_article.php',
+		data : articleId
+	}).then(function successGetArticleById(response){
+		$scope.article = response.data;
+	}, function failGetArticleById(response){
+		console.log(response);
+	});
+
+	// POST article to backend service saving/updating to server
+	$scope.postArticle = function(){
+		
 		$http({
 			method: 'POST',
 			url : 'article-submit.php',

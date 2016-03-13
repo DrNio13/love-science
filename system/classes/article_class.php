@@ -55,6 +55,33 @@ class Article {
 		}
 	}
 
+	public function getArticleById($id) {
+
+		$pdo = Database::connect();
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		try {
+			$statement = $pdo->prepare("SELECT * FROM articles WHERE id=:id LIMIT 1");
+			$statement->bindParam(":id", $id);
+			$statement->execute();
+		} catch (Exception $e) {
+			Database::disconnect();
+			return $e->getMessage();
+		}
+
+		$data = $statement->fetch(PDO::FETCH_ASSOC);
+
+		if ($data) {
+			Database::disconnect();
+			header('200 NOT OK');
+			return $data;
+		} else {
+			Database::disconnect();
+			header('400 OK');
+			return false;
+		}
+	}
+
 	public function addNewArticle() {
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
