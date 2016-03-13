@@ -2,3 +2,4 @@
 .sass-cache
 vendor
 configuration/local-config.php
+node_modules/angular-ui-tinymce
