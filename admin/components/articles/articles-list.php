@@ -55,7 +55,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 				<input ng-model="searchArticle" type="search" class="form-control pull-right" placeholder="search..">
 			</div>
 		</div>
-		<table class="table table-bordered">
+		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th>ID</th>
