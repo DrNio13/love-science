@@ -76,10 +76,15 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 					<td>{{article.category}}</td>
 				</tr>
 		</table>
-		<ul>
-			<li ng-repeat="number in paginationItems">
-				<button ng-click="paginateArticles(number,allArticles,maxArticles)">{{number + 1}}
-				</button>
+		<ul class="pagination ">
+			<li ng-repeat="number in paginationItems track by $index">
+				<a ng-if="$first" ng-click="paginateArticles(0,allArticles,maxArticles)" href="#">
+				Start</a>
+				<a href="#" ng-click="paginateArticles(number,allArticles,maxArticles)">
+				{{number + 1}}
+				</a>
+				<a ng-if="$last" ng-click="paginateArticles( paginationItems.length - 1,allArticles,maxArticles)" href="#">
+				End</a>
 			</li>
 		</ul>
 	</div>

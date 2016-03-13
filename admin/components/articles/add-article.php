@@ -24,14 +24,10 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   <title>Admin - Add an Article</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="<?php echo NODE_MODULES_CMS_URL . '/bootstrap/dist/css/bootstrap.min.css'; ?>">
   <link rel="stylesheet" href="<?php echo FRONTEND_CMS_URL . '/sass/style.css'; ?>" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src='//cdn.tinymce.com/4/tinymce.min.js'></script>
-  <script src="/love-science/node_modules/angular/angular.min.js"></script>
-  <script type="text/javascript" src="/love-science/node_modules/ui-tinymce/src/tinymce.js"></script>
-  <script src="<?php echo FRONTEND_CMS_URL . '/js/app.js'; ?>"></script>
+  </script>
+
 </head>
 
 <body>
@@ -100,6 +96,12 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
         </div>
       </div>
     </form>
+
+      <script type="text/javascript" src="<?php echo NODE_MODULES_CMS_URL . '/tinymce/tinymce.min.js'; ?>"></script>
+  <script src="/love-science/node_modules/angular/angular.min.js"></script>
+  <script type="text/javascript" src="/love-science/node_modules/ui-tinymce/src/tinymce.js"></script>
+  <script src="<?php echo FRONTEND_CMS_URL . '/js/app.js'; ?>"></script>
+
 </div>
 </body>
 </html>

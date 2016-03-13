@@ -1,7 +1,6 @@
 var adminApp = angular.module('adminApp', ['ui.tinymce']);
 
 var ContentParser = ContentParser || {};
-
 appContentParser = {
 	parseArticleContent: function(articles){
 		articles.forEach(function(article) {
