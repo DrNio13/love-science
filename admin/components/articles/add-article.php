@@ -44,7 +44,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
           <button ng-click="saveArticle();" class="btn btn-success" type="submit">Save</button>
         </div>
         <div class="col-xs-3 col-sm-1">
-          <a href='<?php echo FRONTEND_CMS_URL . '/index.php'; ?>' type="button" class="btn btn-default">Cancel</a>
+          <a href='<?php echo FRONTEND_CMS_URL . '/index.php'; ?>' type="button" class="btn btn-default">Close (Without Saving)</a>
         </div>
         <div class="col-xs-3 col-sm-1">
           <a href='delete.php' type="button" class="btn btn-danger">Delete</a>

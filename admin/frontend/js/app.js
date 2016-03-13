@@ -78,7 +78,7 @@ adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $
 			data : angular.toJson($scope.article, true)
 		}).then(function successSumbit(response){
 			console.log(response);
-			window.alert(response.data.message);
+			window.alert(response.data.message + " :) ");
 		}, function failSubmit(response){
 			window.alert(response.data.error);
 		});
