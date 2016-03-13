@@ -80,7 +80,7 @@ adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $
 			console.log(response);
 			window.alert(response.data.message + " :) ");
 		}, function failSubmit(response){
-			window.alert(response.data.error);
+			window.alert(response.data.error + " :( ");
 		});
 	};
 
