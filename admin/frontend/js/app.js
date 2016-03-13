@@ -95,8 +95,8 @@ adminApp.controller('ArticleController', ['$scope', '$http', 'serverDataFactory'
   	};
 
 	// Send article to backend service for saving/updating
-	$scope.postArticle = function(){
-		serverDataFactory.postData('article-submit.php',angular.toJson($scope.article, true))
+	$scope.postArticle = function(article){
+		serverDataFactory.postData('article-submit.php',angular.toJson(article, true))
 		.then(function successSubmit(response){
 			console.log(response);
 			window.alert(response.data.message + " :) ");
@@ -105,14 +105,13 @@ adminApp.controller('ArticleController', ['$scope', '$http', 'serverDataFactory'
 		});
 	};
 
-	$scope.saveArticle = function() {
-		$scope.postArticle();
+	$scope.saveArticle = function(article) {
+		$scope.postArticle(article);
 	};
 
 }]);
 
 adminApp.controller('EditArticleController', ['$scope', '$http', 'serverDataFactory', function ($scope, $http, serverDataFactory) {
-	$scope.article = {};
 	
 	// Get the article to be edited
 	serverDataFactory.postData('services/edit_article.php', articleId)
@@ -121,22 +120,6 @@ adminApp.controller('EditArticleController', ['$scope', '$http', 'serverDataFact
 	}, function failGetArticleById(response){
 		console.log(response);
 	});
-
-	// Send article to backend service for saving/updating
-	$scope.postArticle = function(){
-		serverDataFactory.postData('article-submit.php',angular.toJson($scope.article, true))
-		.then(function successSubmit(response){
-			console.log(response);
-			window.alert(response.data.message + " :) ");
-		}, function failSubmit(response){
-			window.alert(response.data.error + " :( ");
-		});
-	};
-
-	$scope.saveArticle = function() {
-		$scope.postArticle();
-	};
-
 
 }]);
 
