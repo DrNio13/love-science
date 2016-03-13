@@ -19,9 +19,6 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   <script src="<?php echo FRONTEND_CMS_URL . '/js/app.js'; ?>"></script>
 
   <style>
-    .table-bordered{
-
-    }
 
     .logout{
       position: absolute;
@@ -56,12 +53,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   <?php require_once ADMIN . '/partials/common/nav.php';?>
   <div class="container">
     <div class="row">
-      <div class="col-md-3">
-        <a href="#" <button type="button" class="addblog btn btn-default">Add a new User</button></a>
-      </div>
-      <div class="col-md-offset-6 col-md-3">
-        <input ng-model="searchArticle" type="search" class="form-control pull-right" placeholder="search..">
-      </div>
+    <h2>User Manager<h2>
     </div>
     <table class="table table-hover">
       <thead>
@@ -73,25 +65,25 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
         </tr>
         <tbody>
           <tr class="active">
-            <td><a href="user-profile.php">Dimitris</a></td>
+            <td><a href="user-profile.php" data-toogle="tooltip" title="Edit User">Dimitris</a></td>
             <td>dimitris</td>
             <td>N/A</td>
             <td>N/A</td>
           </tr>
           <tr>
-            <td><a href="user-profile.php">George</a></td>
+            <td><a href="user-profile.php" data-toogle="tooltip" title="Edit User">George</a></td>
             <td>george</td>
             <td>N/A</td>
             <td>N/A</td>
           </tr>
           <tr>
-            <td><a href="user-profile.php">George</a></td>
+            <td><a href="user-profile.php" data-toogle="tooltip" title="Edit User">George</a></td>
             <td>george</td>
             <td>N/A</td>
             <td>N/A</td>
           </tr>
           <tr>
-            <td><a href="user-profile.php">George</a></td>
+            <td><a href="user-profile.php" data-toogle="tooltip" title="Edit User">George</a></td>
             <td>george</td>
             <td>N/A</td>
             <td>N/A</td>
@@ -101,5 +93,13 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
     </table>
   </div>
 
+
+<script>
+
+  $(function(){
+    $('[data-toogle = "tooltip"]').tooltip();
+  });
+  
+  </script>
 </body>
 </html>
