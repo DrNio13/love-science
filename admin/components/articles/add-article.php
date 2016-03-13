@@ -55,7 +55,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
       <div class="row">
         <div class="col-lg-10">
           <div class="form-group">
-          <textarea ui-tinymce ng-model="article.content" type="textarea" name="content" class="form-control"  required ></textarea>
+          <textarea ui-tinymce="tinymceOptions" ng-model="article.content" type="textarea" name="content" class="form-control"  required ></textarea>
 
             <!-- <input  ng-model="article.content" type="textarea" name="content" class="form-control"  required > -->
           </div>

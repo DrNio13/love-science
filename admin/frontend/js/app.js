@@ -66,7 +66,8 @@ adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $
 	    inline: false,
 	    plugins : 'advlist autolink link image lists charmap print preview',
 	    skin: 'lightgray',
-	    theme : 'modern'
+	    theme : 'modern',
+	    height: '400px'
   	};
 
 	// POST article to backend service saving/updating to server
