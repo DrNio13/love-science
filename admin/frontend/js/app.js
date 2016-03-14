@@ -122,6 +122,7 @@ adminApp.controller('ArticleController', ['$scope', '$http', 'serverDataFactory'
 			
 			var index = $scope.chunkedArticles.indexOf(article);
 			$scope.chunkedArticles.splice(index, 1);
+			$scope.allArticles.length--;
 			
 			serverDataFactory.deleteArticle(article, 'delete-article.php')
 			.then(function doneCallback(response){
