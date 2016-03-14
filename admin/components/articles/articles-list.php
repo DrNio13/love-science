@@ -63,6 +63,7 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 		<table class="table table-bordered">
 			<thead>
 				<tr>
+					<th>Delete</th>
 					<th>ID</th>
 					<th>Title</th>
 					<th>Content</th>
@@ -71,8 +72,8 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 			</thead>
 			<tbody>
 				<tr ng-repeat="article in chunkedArticles | filter:searchArticle">
+					<td><button class="btn btn-danger" ng-click="deleteArticle(article)">X</button></td>
 					<td><p>{{article.id}}</p></td>
-
 					<td><a ng-href="edit-article.php?id={{article.id}}">{{article.title}}</a></td>
 					<td><p>{{article.content_short}}</p></td>
 					<td><p>{{article.category}}</p></td>

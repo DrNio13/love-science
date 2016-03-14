@@ -20,6 +20,14 @@ adminApp.factory('serverDataFactory', ['$http', function($http, url, data) {
     	});
     };
 
+    serverDataFactory.deleteArticle = function(article,url) {
+    	return $http({
+    		method : 'DELETE',
+    		url: url,
+    		data: article
+    	});
+    };
+
     return serverDataFactory;
 
 }]);
@@ -57,7 +65,7 @@ appPaginator = {
 
 adminApp.controller('RootController', ['$scope', '$http', function ($scope, $http) {
 
-	dataFactory.skato('dog');
+	// dataFactory.skato('dog');
 	
 }]);
 
@@ -107,6 +115,22 @@ adminApp.controller('ArticleController', ['$scope', '$http', 'serverDataFactory'
 
 	$scope.saveArticle = function(article) {
 		$scope.postArticle(article);
+	};
+
+	$scope.deleteArticle = function(article) {
+		if ( window.confirm("Are you sure that you want to delete this article from the database ?") ) {
+			
+			var index = $scope.chunkedArticles.indexOf(article);
+			$scope.chunkedArticles.splice(index, 1);
+			
+			serverDataFactory.deleteArticle(article, 'delete-article.php')
+			.then(function doneCallback(response){
+				console.log(response);
+			}, function failCallback (){
+				console.log(response);
+			});
+		}
+		else {return false};
 	};
 
 }]);

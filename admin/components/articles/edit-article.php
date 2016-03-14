@@ -33,18 +33,15 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   <h1>Add a new Article</h1>
     <form novalidate role="form" class="css-form">
 
-    <div class="row center-text">
-        <div class="col-xs-3 col-xs-offset-3 col-sm-1 col-sm-offset-4">
-          <button ng-click="saveArticle(article);" class="btn btn-success" type="submit">Save</button>
-        </div>
-        <div class="col-xs-3 col-sm-1">
-          <a href='<?php echo FRONTEND_CMS_URL . '/index.php'; ?>' type="button" class="btn btn-default">Close (Without Saving)</a>
-        </div>
-        <div class="col-xs-3 col-sm-1">
-          <a href='delete.php' type="button" class="btn btn-danger">Delete</a>
-        </div>
-    </div>
-    <hr>
+	    <div class="row center-text">
+	        <div class="col-xs-3 col-xs-offset-3 col-sm-1 col-sm-offset-4">
+	          <button ng-click="saveArticle(article);" class="btn btn-success" type="submit">Save</button>
+	        </div>
+	        <div class="col-xs-3 col-sm-1">
+	          <a href='<?php echo FRONTEND_CMS_URL . '/index.php'; ?>' type="button" class="btn btn-default">Close (Without Saving)</a>
+	        </div>
+	    </div>
+	   <hr>
 
       <div class="row">
         <div class="col-lg-10">
