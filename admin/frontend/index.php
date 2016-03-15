@@ -16,7 +16,6 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/love-science/node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <script src="/love-science/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <style>
   	.title2{
   		padding-bottom: 10%;

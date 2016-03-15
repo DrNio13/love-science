@@ -6,16 +6,6 @@ require_once SYSTEM . '/classes/article_class.php';
 if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
 	header("location: ../../actions/login.php");
 }
-
-// $article = new Article('prwto', 'prwto', 'article');
-// $a = new Article('prwto', 'xxx', 'asdasdasd');
-
-// if ($article->isArticleExisting()) {
-// 	echo $article->isArticleExisting();
-// }
-
-// print $a->updateArticle();
-
 ?>
 
 <!DOCTYPE html>
@@ -53,8 +43,6 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
         <div class="col-lg-10">
           <div class="form-group">
           <textarea ui-tinymce="tinymceOptions" ng-model="article.content" type="textarea" name="content" class="form-control"  required ></textarea>
-
-            <!-- <input  ng-model="article.content" type="textarea" name="content" class="form-control"  required > -->
           </div>
         </div>
         <div class="col-lg-2">
@@ -69,6 +57,11 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
               <label for="rb1" class="center-label">Published</label>
               <input type="radio" id="rb2" name="rb"value="">
               <label for="rb2" class="center-label lbl">Unpublished</label>
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="url" class="center-text">URL</label>
+            <input ng-model="article.url" type="text" name="meta-title" class="form-control" placeholder="Enter the url">
           </div>
           <br>
           <div class="form-group">

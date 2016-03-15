@@ -6,19 +6,32 @@ class Article {
 	private $title;
 	private $category;
 	private $content;
+	private $url;
+	private $meta_title;
+	private $meta_description;
+	private $meta_keywords;
 
-	public function __construct($title, $category, $content) {
+	public function __construct($title, $category, $content, $url, $meta_title,
+		$meta_description, $meta_keywords) {
 		$this->title = $title;
 		$this->category = $category;
 		$this->content = $content;
+		$this->url = $url;
+		$this->meta_title = $meta_title;
+		$this->meta_description = $meta_description;
+		$this->meta_keywords = $meta_keywords;
 	}
 
 	public function getArticleProperties() {
 		$title = $this->title;
 		$category = $this->category;
 		$content = $this->content;
+		$url = $this->url;
+		$meta_title = $this->meta_title;
+		$meta_description = $this->meta_description;
+		$meta_keywords = $this->meta_keywords;
 
-		return array('title' => $title, 'category' => $category, 'content' => $content);
+		return array('title' => $title, 'category' => $category, 'content' => $content, 'url' => $url, 'meta_title' => $meta_title, 'meta_description' => $meta_description, 'meta_keywords' => $meta_keywords);
 	}
 
 	public function getArticleName() {
@@ -44,12 +57,12 @@ class Article {
 
 		if ($data) {
 			Database::disconnect();
-			header('400 NOT OK');
+			header('200');
 			return true;
-			// return json_encode(array("error" => "article with that title already exists in the database. Please try again with unique title."));
+			// return json_encode(array("message" => "article with that title already exists in the database. Please try again with unique title."));
 		} else {
 			Database::disconnect();
-			header('200 OK');
+			header('400');
 			return false;
 			// return json_encode(array("message" => "article doesn't exists in the database"));
 		}
@@ -73,7 +86,7 @@ class Article {
 
 		if ($data) {
 			Database::disconnect();
-			header('200 NOT OK');
+			header('200 OK');
 			return $data;
 		} else {
 			Database::disconnect();
@@ -87,11 +100,15 @@ class Article {
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		try {
-			$statement = $pdo->prepare("INSERT INTO articles(title,category,content) VALUES(:title,:category,:content)");
+			$statement = $pdo->prepare("INSERT INTO articles(title,category,content,url,meta_title,meta_description,meta_keywords) VALUES(:title,:category,:content,:url,:meta_title,:meta_description,:meta_keywords)");
 			$statement->execute(array(
 				"title" => $this->title,
 				"category" => $this->category,
 				"content" => $this->content,
+				'url' => $this->url,
+				'meta_title' => $this->meta_title,
+				'meta_description' => $this->meta_description,
+				'meta_keywords' => $this->meta_keywords,
 			));
 		} catch (Exception $e) {
 			Database::disconnect();
@@ -126,11 +143,15 @@ class Article {
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		try {
-			$statement = $pdo->prepare("UPDATE articles SET title=:title, category=:category, content=:content WHERE title=:title");
+			$statement = $pdo->prepare("UPDATE articles SET title=:title, category=:category, content=:content,url=:url, meta_title=:meta_title, meta_description=:meta_description, meta_keywords=:meta_keywords WHERE title=:title");
 			$statement->execute(array(
 				'title' => $this->title,
 				'category' => $this->category,
 				'content' => $this->content,
+				'url' => $this->url,
+				'meta_title' => $this->meta_title,
+				'meta_description' => $this->meta_description,
+				'meta_keywords' => $this->meta_keywords,
 			));
 		} catch (Exception $e) {
 			Database::disconnect();
