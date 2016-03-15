@@ -55,6 +55,33 @@ class Article {
 		}
 	}
 
+	public function getArticleById($id) {
+
+		$pdo = Database::connect();
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		try {
+			$statement = $pdo->prepare("SELECT * FROM articles WHERE id=:id LIMIT 1");
+			$statement->bindParam(":id", $id);
+			$statement->execute();
+		} catch (Exception $e) {
+			Database::disconnect();
+			return $e->getMessage();
+		}
+
+		$data = $statement->fetch(PDO::FETCH_ASSOC);
+
+		if ($data) {
+			Database::disconnect();
+			header('200 NOT OK');
+			return $data;
+		} else {
+			Database::disconnect();
+			header('400 OK');
+			return false;
+		}
+	}
+
 	public function addNewArticle() {
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -74,14 +101,14 @@ class Article {
 		Database::disconnect();
 	}
 
-	public function deleteArticle() {
+	public function deleteArticle($id) {
 		$pdo = Database::connect();
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		try {
-			$statement = $pdo->prepare("DELETE FROM articles WHERE title=:title");
+			$statement = $pdo->prepare("DELETE FROM articles WHERE id=:id");
 			$statement->execute(array(
-				'title' => $this->title,
+				'id' => $id,
 			));
 		} catch (Exception $e) {
 			Database::disconnect();
@@ -90,7 +117,7 @@ class Article {
 
 		Database::disconnect();
 		header("200 OK");
-		return json_encode(array("message" => "article with title $this->title deleted."));
+		return json_encode(array("message" => "article with title $this->title has been deleted."));
 
 	}
 

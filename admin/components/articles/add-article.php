@@ -41,13 +41,10 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
 
     <div class="row center-text">
         <div class="col-xs-3 col-xs-offset-3 col-sm-1 col-sm-offset-4">
-          <button ng-click="saveArticle();" class="btn btn-success" type="submit">Save</button>
+          <button ng-click="saveArticle(article);" class="btn btn-success" type="submit">Save</button>
         </div>
         <div class="col-xs-3 col-sm-1">
-          <a href='<?php echo FRONTEND_CMS_URL . '/index.php'; ?>' type="button" class="btn btn-default">Close (Without Saving)</a>
-        </div>
-        <div class="col-xs-3 col-sm-1">
-          <a href='delete.php' type="button" class="btn btn-danger">Delete</a>
+          <a href='<?php echo COMPONENTS_CMS_URL . '/articles/articles-list.php'; ?>' type="button" class="btn btn-default">Close (Without Saving)</a>
         </div>
     </div>
     <hr>

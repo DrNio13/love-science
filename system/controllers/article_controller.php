@@ -39,5 +39,4 @@ class ArticleController {
 		Database::disconnect();
 		echo json_encode($transformed);
 	}
-
 }

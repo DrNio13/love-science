@@ -1,10 +1,42 @@
 var adminApp = angular.module('adminApp', ['ui.tinymce']);
 
+adminApp.factory('serverDataFactory', ['$http', function($http, url, data) {
+
+    var urlBase =  url; //'/api/customers';
+    var serverDataFactory = {};
+
+    serverDataFactory.postData = function(url,data){
+    	return $http({
+    		method: 'POST',
+    		url: url,
+    		data: data
+    	});
+    };
+
+    serverDataFactory.getData = function(url){
+    	return $http({
+    		method: 'GET',
+    		url: url
+    	});
+    };
+
+    serverDataFactory.deleteArticle = function(article,url) {
+    	return $http({
+    		method : 'DELETE',
+    		url: url,
+    		data: article
+    	});
+    };
+
+    return serverDataFactory;
+
+}]);
+
 var ContentParser = ContentParser || {};
 appContentParser = {
 	parseArticleContent: function(articles){
 		articles.forEach(function(article) {
-			article.parsed_content = article.content.replace('&nbsp;', '');
+			article.content_short = article.content_short.replace('&nbsp;', '');
 		});
 	}
 };
@@ -32,10 +64,12 @@ appPaginator = {
 
 
 adminApp.controller('RootController', ['$scope', '$http', function ($scope, $http) {
+
+	// dataFactory.skato('dog');
 	
 }]);
 
-adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $http) {
+adminApp.controller('ArticleController', ['$scope', '$http', 'serverDataFactory', function ($scope, $http, serverDataFactory) {
 	$scope.allArticles = [];
 	$scope.article = {};
 	$scope.articlesIndex = 0;
@@ -43,10 +77,8 @@ adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $
 	$scope.paginationItems = [];
 
 	// GET all articles
-	$http({
-		method: 'GET',
-		url : '/love-science/system/api/get-articles.php'
-	}).then(function successGetArticles(response){
+	serverDataFactory.getData('/love-science/system/api/get-articles.php')
+	.then(function successGetArticles(response){
 
 		appContentParser.parseArticleContent(response.data);
 		
@@ -70,13 +102,10 @@ adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $
 	    height: '400px'
   	};
 
-	// POST article to backend service saving/updating to server
-	$scope.postArticle = function(){
-		$http({
-			method: 'POST',
-			url : 'article-submit.php',
-			data : angular.toJson($scope.article, true)
-		}).then(function successSumbit(response){
+	// Send article to backend service for saving/updating
+	$scope.postArticle = function(article){
+		serverDataFactory.postData('article-submit.php',angular.toJson(article, true))
+		.then(function successSubmit(response){
 			console.log(response);
 			window.alert(response.data.message + " :) ");
 		}, function failSubmit(response){
@@ -84,9 +113,38 @@ adminApp.controller('ArticleController', ['$scope', '$http', function ($scope, $
 		});
 	};
 
-	$scope.saveArticle = function() {
-		$scope.postArticle();
+	$scope.saveArticle = function(article) {
+		$scope.postArticle(article);
 	};
+
+	$scope.deleteArticle = function(article) {
+		if ( window.confirm("Are you sure that you want to delete this article from the database ?") ) {
+			
+			var index = $scope.chunkedArticles.indexOf(article);
+			$scope.chunkedArticles.splice(index, 1);
+			$scope.allArticles.length--;
+			
+			serverDataFactory.deleteArticle(article, 'delete-article.php')
+			.then(function doneCallback(response){
+				console.log(response);
+			}, function failCallback (){
+				console.log(response);
+			});
+		}
+		else {return false};
+	};
+
+}]);
+
+adminApp.controller('EditArticleController', ['$scope', '$http', 'serverDataFactory', function ($scope, $http, serverDataFactory) {
+	
+	// Get the article to be edited
+	serverDataFactory.postData('services/edit_article.php', articleId)
+	.then(function successGetArticleById(response){
+		$scope.article = response.data;
+	}, function failGetArticleById(response){
+		console.log(response);
+	});
 
 }]);
 
