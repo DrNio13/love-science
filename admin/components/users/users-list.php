@@ -35,12 +35,25 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
     .table-hover{
       margin-top: 1.2em;
     }
+
+    table.table-hover tr{
+      transition-property:background-color;
+      transition-duration:.5s;
+    }
     td a{
       cursor: pointer;
       color: inherit;
     }
     td a:hover{
       color: inherit;
+    }
+
+    tbody tr:nth-child(odd){
+      background-color: #f7f7f7;
+    }
+
+    table.table-hover tr:hover{
+      background-color: #F4F1E7;
     }
 
 
@@ -61,7 +74,6 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
           <th>Email</th>
         </tr>
         <tbody>
-          <tr class="active">
             <td><a href="user-profile.php" title="Edit User">Dimitris</a></td>
             <td>dimitris</td>
             <td>N/A</td>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="/love-science/assets/sass/style.css">
+	<link rel="stylesheet" type="text/css" href="/love-science/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+
+body{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+  	height: 100%;
+}
+
+.navbar-default {
+ 	background-color: transparent;
+    padding: 1em 1em;
+    border-bottom: 0;
+    letter-spacing: 1px;
+    font-weight: bold;
+    text-transform: uppercase;
+    -webkit-transition: background 1s ease-in-out,padding 1s ease-in-out;
+    -moz-transition: background 1s ease-in-out,padding 1s ease-in-out;
+    transition: background 1s ease-in-out,padding 1s ease-in-out;
+}
+
+.navbar-header{
+	padding-right: 2em;
+}
+
+.navbar-default.top-nav-collapse {
+    padding: 0 3em;
+    border-bottom: 1px solid rgba(255,255,255,.3);
+    background-color: #343434;
+}
+
+header{
+	position: relative;
+	width: 100%;
+    height: 635px;
+   
+}
+
+header:before {
+  content: "";
+  position: relative;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  display: block;
+  background-image: url('../gadgets.jpg');
+  background-size:cover;
+  width: 100%;
+  height: 635px;
+
+  -webkit-filter: blur(1px);
+  -moz-filter: blur(1px);
+  -o-filter: blur(1px);
+  -ms-filter: blur(1px);
+  filter: blur(1px);
+}
+
+header .container-fluid h2{
+	position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+	color: #fff;
+}
+header .container-fluid h3{
+	position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+	color: #fff;
+	width: 40%;
+	text-align: center;
+}
+
+@media screen and (max-width:985px) {
+	.navbar-default {
+	padding: 0em 1em !important;
+	}
+}
+
+@media screen and (max-width:765px) {
+	.navbar-default {
+	padding: 0em 0em !important;
+	}
+}
+
+header:after {
+    clear: both;
+    content: '.';
+    display: block;
+    
+   
+}
+
+section{
+	margin-top: 4em;
+}
+
+.col-sm-4 h3{
+	color: black;
+}
+
+.icon{
+	color: #28577F;
+}
+
+#info .row a:hover{
+	text-decoration: none;
+}
+
+.bg-1{
+	background-color: #343434;
+	height: 250px;
+}
+
+
+#newsletter h3,p{
+	text-align: center;
+	color: #fff;
+	padding-top: 1em;
+}
+
+
+
+#newsletter form{
+	padding-top: 1em;
+	text-align: center;
+}
+
+.custom{
+	height: 300px;
+}
+
+footer{
+	height: 150px;
+	background-color: #343434;
+}
+
+.col-sm-6 li p{
+	color: black;
+} 
+
+
+</style>
+<body id="myBody">
+	<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+	    <div class="container-fluid">
+	        <div class="navbar-header">
+	            <a class="navbar-brand page-scroll" href="#myBody" style="color:#FDFDFD;">Yes I Love Science</a>
+	            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavBar">
+	                <span class="sr-only">Mobile Navigation</span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	                <span class="icon-bar"></span>
+	            </button>
+	        </div>
+	        <div class="collapse navbar-collapse" id="mynavBar">
+	            <ul class="nav navbar-nav">
+	                <li>
+	                    <a class="page-scroll" href="#" style="color:#FDFDFD;">Home</a>
+	                </li>
+	                <li>
+	                    <a class="page-scroll" href="#" style="color:#FDFDFD;">Categories</a>
+	                </li>
+	                <li>
+	                    <a class="page-scroll" href="#" style="color:#FDFDFD;">Recommended</a>
+	                </li>
+	                <li>
+	                    <a class="page-scroll" href="#" style="color:#FDFDFD;">Blog</a>
+	                </li>
+	            </ul>
+	        </div>
+	    </div>
+	</nav>
+	<header id="heading" class="clearfix">
+		<div class="container-fluid clearfix">
+			<h2>Coming Soon...</h2>
+			<h3>Yes I love Science - Get informed for top tech news and stay up-to-date with crazy cool gadgets.</h3>
+			<a href="#about" class="btn btn-circle btn-lg page-scroll"></a>
+		</div>
+	</header>
+
+	<section id="info">
+		<div class="container-fluid text-center">
+			<div class="row">
+				<div class="col-sm-4">
+					<i class="fa fa-info-circle fa-5x icon"></i>
+					<a href="#"><h3>Yes I love Science - Get informed for top tech news and stay up-to-date with crazy cool gadgets.</h3></a>
+				</div>
+				<div class="col-sm-4">
+					<i class="fa fa-heart fa-5x icon"></i>
+					<a href="#"><h3>We are passioned about technology and gadgets.</h3></a>
+				</div>
+				<div class="col-sm-4">
+					<i class="fa fa-shopping-bag fa-5x icon"></i>
+					<a href="#"><h3>The variety of gadgets is huge. We have gadgets for home, gadgets for the office, gadgets for your kids, gadgets for the whole family!</h3></a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="newsletter" class="bg-1">
+		<h3>SUBSCRIBE</h2>
+		<p>Sign Up with your email address to receive news and updates</p>
+		<form class="form-inline" role="form">
+			<div class="form-group">
+				<input type="email" class="form-control" id="email" placeholder="Email Address">
+				<a href="#" class="btn btn-primary btn-large">Join</a>
+			</div>
+		</form>
+	</section>
+	<div class="custom">
+		<div class="container-fluid text-center">
+			<div class="row">
+				<h3>Our new website is coming soon and it will contain</h3>
+				<div class="col-sm-6">
+					<ul>
+						<li>
+							<p>A selective blog with all the latest articles around computers, artificial intelligence, NASA, Google, Tesla, Apple cars, coding news, astronomic news and world scientific discoveries and many many other interesting topics!</p>
+						</li>
+						<li>
+							<p>A funny section for a nice lunch break from work possibly. Funny news or funny real videos around the world.</p>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-6">
+					<ul>
+						<li>
+							<p>Fashion and Hollywood news.</p>
+						</li>
+						<li>
+							<p>The opportunity for you to choose what topics you should focus on</p>
+						</li>
+					</ul>
+				</div>
+			</div>
+	</div>
+
+	</div>
+
+	<footer>
+
+	</footer>
+
+<div ng-view></div>
+
+<script src="/love-science/node_modules/angular/angular.min.js"></script>
+<script src="/love-science/node_modules/angular-route/angular-route.min.js"></script>
+<script src="/love-science/app/app.js" type="text/javascript"></script>
+<script src="/love-science/app/controllers.js" type="text/javascript"></script>
+
+<script>
+
+$(window).scroll( function(){
+
+  if ($(".navbar").offset().top > 50) {
+        $(".navbar-fixed-top").addClass("top-nav-collapse");
+    } else {
+        $(".navbar-fixed-top").removeClass("top-nav-collapse");
+    }
+});
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+</body>
+</html>

@@ -3,6 +3,9 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="stylesheet" type="text/css" href="/love-science/assets/sass/style.css">
+	<link rel="stylesheet" type="text/css" href="/love-science/node_modules/bootstrap/dist/css/bootstrap.min.css">
+	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	<title>YesILoveScience - Top tech cool gadgets, scientific articles and the latest tech news. </title>
 	<meta name="description" content="Search and buy fancy awesome gadgets online with low cost and free shipping.">
 	<meta name="keywords" content="science,gadets,tech,technology,news,cool gadgets">
@@ -10,7 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 </head>
 <body>
-
+<div ng-view></div>
 <header class="main-header container-fluid">
 	<figure class="row main-bg">
 	</figure>
@@ -53,7 +56,10 @@
 <p>Yes I Love Science!! The gadget, tech blog to get informed and buy gadgets online!</p>
 </footer>
 
+<script src="/love-science/node_modules/angular/angular.min.js"></script>
+<script src="/love-science/node_modules/angular-route/angular-route.min.js"></script>
+<script src="/love-science/app/app.js" type="text/javascript"></script>
+<script src="/love-science/app/controllers.js" type="text/javascript"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
-	
 </body>
 </html>
