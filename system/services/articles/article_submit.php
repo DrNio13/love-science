@@ -1,7 +1,6 @@
 <?php
 
-require_once "../../config.php";
-require_once SYSTEM . "/classes/article_class.php";
+require_once "../../classes/article_class.php";
 
 $postdata = file_get_contents("php://input");
 $data = json_decode($postdata);

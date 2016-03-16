@@ -1,5 +1,6 @@
 <?php
-require_once '../controllers/user_controller.php';
+require_once '../../../../config.php';
+require_once SYSTEM . '/controllers/user_controller.php';
 
 $controller = new UserController();
 $listUsers = $controller->showAllUsers();

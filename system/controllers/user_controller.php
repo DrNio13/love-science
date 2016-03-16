@@ -1,6 +1,7 @@
 <?php
 
-require_once '../classes/database_class.php';
+require_once '../../../../config.php';
+require_once SYSTEM . 'classes/database_class.php';
 
 class UserController {
 
