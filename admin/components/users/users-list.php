@@ -14,9 +14,6 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/love-science/node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <script src="/love-science/node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="/love-science/node_modules/angular/angular.min.js"></script>
-  <script src="<?php echo FRONTEND_CMS_URL . '/js/app.js'; ?>"></script>
 
   <style>
 
@@ -65,25 +62,25 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
         </tr>
         <tbody>
           <tr class="active">
-            <td><a href="user-profile.php" data-toogle="tooltip" title="Edit User">Dimitris</a></td>
+            <td><a href="user-profile.php" title="Edit User">Dimitris</a></td>
             <td>dimitris</td>
             <td>N/A</td>
             <td>N/A</td>
           </tr>
           <tr>
-            <td><a href="user-profile.php" data-toogle="tooltip" title="Edit User">George</a></td>
+            <td><a href="user-profile.php" title="Edit User">George</a></td>
             <td>george</td>
             <td>N/A</td>
             <td>N/A</td>
           </tr>
           <tr>
-            <td><a href="user-profile.php" data-toogle="tooltip" title="Edit User">George</a></td>
+            <td><a href="user-profile.php" title="Edit User">George</a></td>
             <td>george</td>
             <td>N/A</td>
             <td>N/A</td>
           </tr>
           <tr>
-            <td><a href="user-profile.php" data-toogle="tooltip" title="Edit User">George</a></td>
+            <td><a href="user-profile.php" title="Edit User">George</a></td>
             <td>george</td>
             <td>N/A</td>
             <td>N/A</td>
@@ -93,13 +90,8 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
     </table>
   </div>
 
+  <script src="/love-science/node_modules/angular/angular.min.js"></script>
+  <script src="<?php echo FRONTEND_CMS_URL . '/js/app.js'; ?>"></script>
 
-<script>
-
-  $(function(){
-    $('[data-toogle = "tooltip"]').tooltip();
-  });
-  
-  </script>
 </body>
 </html>
