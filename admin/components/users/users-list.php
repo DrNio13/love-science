@@ -90,7 +90,9 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
     </table>
   </div>
 
+<script type="text/javascript" src="<?php echo NODE_MODULES_CMS_URL . '/tinymce/tinymce.min.js'; ?>"></script>
   <script src="/love-science/node_modules/angular/angular.min.js"></script>
+  <script type="text/javascript" src="/love-science/node_modules/angular-ui-tinymce/dist/tinymce.min.js"></script>
   <script src="<?php echo FRONTEND_CMS_URL . '/js/app.js'; ?>"></script>
 
 </body>
