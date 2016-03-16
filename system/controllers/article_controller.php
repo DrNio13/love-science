@@ -1,6 +1,7 @@
 <?php
 
-require_once '../classes/database_class.php';
+require_once '../../../../config.php';
+require_once SYSTEM . '/classes/database_class.php';
 
 class ArticleController {
 
@@ -14,7 +15,7 @@ class ArticleController {
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		try {
-			$statement = $pdo->prepare("SELECT id,title,category,content FROM articles");
+			$statement = $pdo->prepare("SELECT * FROM articles");
 			$statement->execute();
 		} catch (Exception $e) {
 			Database::disconnect();

@@ -1,14 +1,14 @@
 <?php
 
-require_once "../../../config.php";
-require_once SYSTEM . "/classes/article_class.php";
+require_once "../../classes/article_class.php";
 
 $postdata = file_get_contents("php://input");
 $data = json_decode($postdata);
 
 if (!empty($data->id)) {
 
-	$article = new Article($data->title, $data->category, $data->content);
+	$article = new Article($data->title, $data->category, $data->content,
+		$data->url, $data->meta_title, $data->meta_description, $data->meta_keywords);
 
 	if ($article->articleExists()) {
 		$article->deleteArticle($data->id);

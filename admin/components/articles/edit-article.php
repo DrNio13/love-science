@@ -64,6 +64,11 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
           </div>
           <br>
           <div class="form-group">
+            <label for="url" class="center-text">URL</label>
+            <input ng-model="article.url" type="text" name="meta-title" class="form-control" placeholder="Enter the url">
+          </div>
+          <br>
+          <div class="form-group">
             <label for="metaTitle" class="center-text">Meta Title</label>
             <input ng-model="article.meta_title" type="text" name="meta-title" class="form-control" placeholder="Enter your Meta Title">
           </div>
