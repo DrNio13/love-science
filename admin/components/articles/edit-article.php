@@ -64,6 +64,11 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
           </div>
           <br>
           <div class="form-group">
+            <label for="url" class="center-text">Img URL</label>
+            <input ng-model="article.img_url" type="text" name="meta-title" class="form-control" placeholder="Enter the url">
+          </div>
+          <br>
+          <div class="form-group">
             <label for="url" class="center-text">URL</label>
             <input ng-model="article.url" type="text" name="meta-title" class="form-control" placeholder="Enter the url">
           </div>

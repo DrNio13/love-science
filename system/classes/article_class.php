@@ -7,16 +7,18 @@ class Article {
 	private $category;
 	private $content;
 	private $url;
+	private $img_url;
 	private $meta_title;
 	private $meta_description;
 	private $meta_keywords;
 
-	public function __construct($title, $category, $content, $url, $meta_title,
+	public function __construct($title, $category, $content, $url, $img_url, $meta_title,
 		$meta_description, $meta_keywords) {
 		$this->title = $title;
 		$this->category = $category;
 		$this->content = $content;
 		$this->url = $url;
+		$this->img_url = $img_url;
 		$this->meta_title = $meta_title;
 		$this->meta_description = $meta_description;
 		$this->meta_keywords = $meta_keywords;
@@ -143,12 +145,13 @@ class Article {
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		try {
-			$statement = $pdo->prepare("UPDATE articles SET title=:title, category=:category, content=:content,url=:url, meta_title=:meta_title, meta_description=:meta_description, meta_keywords=:meta_keywords WHERE title=:title");
+			$statement = $pdo->prepare("UPDATE articles SET title=:title, category=:category, content=:content,url=:url,img_url=:img_url, meta_title=:meta_title, meta_description=:meta_description, meta_keywords=:meta_keywords WHERE title=:title");
 			$statement->execute(array(
 				'title' => $this->title,
 				'category' => $this->category,
 				'content' => $this->content,
 				'url' => $this->url,
+				'img_url' => $this->img_url,
 				'meta_title' => $this->meta_title,
 				'meta_description' => $this->meta_description,
 				'meta_keywords' => $this->meta_keywords,
@@ -162,5 +165,31 @@ class Article {
 		header("200 OK");
 		return json_encode(array("message" => "article with title $this->title has been updated."));
 
+	}
+
+	public function getArticleByUrl($url) {
+		$pdo = Database::connect();
+		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		try {
+			$statement = $pdo->prepare("SELECT * FROM articles WHERE url=:url LIMIT 1");
+			$statement->bindParam(":url", $url);
+			$statement->execute();
+		} catch (Exception $e) {
+			Database::disconnect();
+			return $e->getMessage();
+		}
+
+		$data = $statement->fetch(PDO::FETCH_ASSOC);
+
+		if ($data) {
+			Database::disconnect();
+			header('200 OK');
+			return $data;
+		} else {
+			Database::disconnect();
+			header('400 OK');
+			return false;
+		}
 	}
 }

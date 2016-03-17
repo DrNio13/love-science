@@ -64,6 +64,7 @@ mainApp.controller('blogController', ['$scope','$routeParams','dataFactory', fun
 	 dataFactory.postData('system/services/api/articles/article.php', $scope.articleUrl)
 	 .then(function successCallback(response){
 	 	$scope.article = response.data;
+	 	console.log(response);
 	 }, function errorCallback(response){
 	 	console.log(response);
 	 });
