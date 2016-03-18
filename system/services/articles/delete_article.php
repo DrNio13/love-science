@@ -7,7 +7,7 @@ $data = json_decode($postdata);
 
 if (!empty($data->id)) {
 
-	$article = new Article($data->title, $data->category, $data->content,
+	$article = new Article($data->alias, $data->title, $data->category, $data->content,
 		$data->url, $data->img_url, $data->meta_title, $data->meta_description, $data->meta_keywords);
 
 	if ($article->articleExists()) {

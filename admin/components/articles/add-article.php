@@ -52,11 +52,8 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
           </div>
           <br>
           <div class="form-group">
-              <label for="status" class="center-text">Status</label><br>
-              <input type="radio" id="rb1" name="rb" value="" checked>
-              <label for="rb1" class="center-label">Published</label>
-              <input type="radio" id="rb2" name="rb"value="">
-              <label for="rb2" class="center-label lbl">Unpublished</label>
+            <label for="title" class="center-text">Alias</label>
+            <input ng-model="article.alias" type="text" name="title" class="form-control" placeholder="Enter the Alias" required />
           </div>
           <br>
           <div class="form-group">

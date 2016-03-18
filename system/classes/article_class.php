@@ -3,6 +3,7 @@
 require_once 'database_class.php';
 
 class Article {
+	private $alias;
 	private $title;
 	private $category;
 	private $content;
@@ -12,8 +13,9 @@ class Article {
 	private $meta_description;
 	private $meta_keywords;
 
-	public function __construct($title, $category, $content, $url, $img_url, $meta_title,
+	public function __construct($alias, $title, $category, $content, $url, $img_url, $meta_title,
 		$meta_description, $meta_keywords) {
+		$this->alias = $alias;
 		$this->title = $title;
 		$this->category = $category;
 		$this->content = $content;
@@ -47,8 +49,8 @@ class Article {
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		try {
-			$statement = $pdo->prepare("SELECT * FROM articles WHERE title=:title LIMIT 1");
-			$statement->bindParam(":title", $this->title);
+			$statement = $pdo->prepare("SELECT * FROM articles WHERE alias=:alias LIMIT 1");
+			$statement->bindParam(":alias", $this->alias);
 			$statement->execute();
 		} catch (Exception $e) {
 			Database::disconnect();
@@ -102,8 +104,9 @@ class Article {
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		try {
-			$statement = $pdo->prepare("INSERT INTO articles(title,category,content,url,meta_title,meta_description,meta_keywords) VALUES(:title,:category,:content,:url,:meta_title,:meta_description,:meta_keywords)");
+			$statement = $pdo->prepare("INSERT INTO articles(alias,title,category,content,url,meta_title,meta_description,meta_keywords) VALUES(:alias,:title,:category,:content,:url,:meta_title,:meta_description,:meta_keywords)");
 			$statement->execute(array(
+				"alias" => $this->alias,
 				"title" => $this->title,
 				"category" => $this->category,
 				"content" => $this->content,
@@ -145,8 +148,9 @@ class Article {
 		$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		try {
-			$statement = $pdo->prepare("UPDATE articles SET title=:title, category=:category, content=:content,url=:url,img_url=:img_url, meta_title=:meta_title, meta_description=:meta_description, meta_keywords=:meta_keywords WHERE title=:title");
+			$statement = $pdo->prepare("UPDATE articles SET alias=:alias,title=:title, category=:category, content=:content,url=:url,img_url=:img_url, meta_title=:meta_title, meta_description=:meta_description, meta_keywords=:meta_keywords WHERE alias=:alias");
 			$statement->execute(array(
+				'alias' => $this->alias,
 				'title' => $this->title,
 				'category' => $this->category,
 				'content' => $this->content,
