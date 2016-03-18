@@ -1,8 +1,8 @@
-<section class="page-intro container-fluid">
+<section class="page-intro container-fluid {{page}}">
 	<div classs="row">
 		<figure class="page-main-background">
-			<h1 class="intro-title">Home Page Intro Headline</h1>
-			<figcaption class="intro-description">Lorem ipsum</figcaption>
+			<h1 class="intro-title">Home Page Intro Headline Bacon Ipsum</h1>
+			<figcaption class="intro-description">Bacon ipsum dolor amet chuck drumstick landjaeger beef. Hamburger leberkas kielbasa pancetta sirloin cow turducken shoulder pastrami andouille. Pastrami hamburger brisket short loin spare ribs chuck pork belly sirloin landjaeger shankle. Tongue fatback leberkas corned beef flank, drumstick swine brisket boudin pork turkey ribeye.</figcaption>
 		</figure>
 	</div>	
 </section>
@@ -11,12 +11,16 @@
 
 	<div ng-repeat="article in articles track by article.id">
 		<div class="row">
-			<article class="article-container">
-				<img class="article-thumb" ng-src="{{article.img_url}}">
-				<h1>{{article.title}}</h1>
-				<p>{{article.meta_description}}</p>
-				<a class="read-more-btn" ng-href="#/blog/{{article.url}}">Read more</a>
-			</article>
+			<div class='article-container'>
+				<article class="article">
+					<img class="article-thumb" ng-src="{{article.img_url}}">
+					<div class="article-content">
+						<h1>{{article.title}}</h1>
+						<p>{{article.meta_description}}</p>
+						<a class="read-more-btn pull-right" ng-href="#/blog/{{article.url}}">Read more</a>
+					</div>
+				</article>
+			</div>
 		</div>
 	</div>
 

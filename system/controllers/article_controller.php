@@ -32,7 +32,7 @@ class ArticleController {
 			$article['content'] = $replaced;
 
 			// Add short version of article content
-			$article['content_short'] = substr($article['content'], 0, 40);
+			$article['content_short'] = substr($article['content'], 0, 60);
 
 			array_push($transformed, $article);
 		}

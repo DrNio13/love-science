@@ -47,6 +47,7 @@ mainApp.controller('rootController', ['$scope', function ($scope) {
 
 mainApp.controller('homeController', ['$scope','$route','$http','dataFactory', function ($scope,$route,$http, dataFactory) {
 	$scope.articles = [];
+	$scope.page = 'home-page';
 
 	dataFactory.getData('system/services/api/articles/all.php')
 	.then(function successCallback(response) {
@@ -60,7 +61,8 @@ mainApp.controller('homeController', ['$scope','$route','$http','dataFactory', f
 
 mainApp.controller('blogController', ['$scope','$routeParams','dataFactory', function ($scope,$routeParams,dataFactory) {
 	 $scope.articleUrl = $routeParams.url;
-	 
+	 $scope.page = 'blog-page';
+
 	 dataFactory.postData('system/services/api/articles/article.php', $scope.articleUrl)
 	 .then(function successCallback(response){
 	 	$scope.article = response.data;
