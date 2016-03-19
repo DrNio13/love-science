@@ -2,19 +2,19 @@ body{
 	margin: 0;
 	padding: 0;
 	width: 100%;
-  	height: 100%;
+  height: 100%;
 }
 
 .navbar-default {
  	background-color: transparent;
-    padding: 1em 1em;
-    border-bottom: 0;
-    letter-spacing: 1px;
-    font-weight: bold;
-    text-transform: uppercase;
-    -webkit-transition: background 1s ease-in-out,padding 1s ease-in-out;
-    -moz-transition: background 1s ease-in-out,padding 1s ease-in-out;
-    transition: background 1s ease-in-out,padding 1s ease-in-out;
+  padding: 1em 1em;
+  border-bottom: 0;
+  letter-spacing: 1px;
+  font-weight: bold;
+  text-transform: uppercase;
+  -webkit-transition: background 1s ease-in-out,padding 1s ease-in-out;
+  -moz-transition: background 1s ease-in-out,padding 1s ease-in-out;
+  transition: background 1s ease-in-out,padding 1s ease-in-out;
 }
 
 .navbar-header{
@@ -27,14 +27,14 @@ body{
 
 .navbar-default.top-nav-collapse {
     padding: 0 3em;
-    border-bottom: 1px solid rgba(255,255,255,.3);
+    border-bottom: 1px solid rgba(255,255,255,.8);
     background-color: #343434;
 }
 
 header{
 	position: relative;
 	width: 100%;
-    height: 655px;
+  height: 750px;
    
 }
 
@@ -48,18 +48,18 @@ header:before {
   background-image: url('../gadgets.jpg');
   background-size:cover;
   width: 100%;
-  height: 655px;
+  height: 750px;
 
-  -webkit-filter: blur(1px);
-  -moz-filter: blur(1px);
-  -o-filter: blur(1px);
-  -ms-filter: blur(1px);
-  filter: blur(1px);
+  -webkit-filter: blur(2px);
+  -moz-filter: blur(2px);
+  -o-filter: blur(2px);
+  -ms-filter: blur(2px);
+  filter: blur(2px);
 }
 
 header .container-fluid h2{
 	 position: absolute;
-   top: 20%;
+   top: 15%;
    left: 50%;
    transform: translateX(-50%) translateY(-50%);
 	 color: #fff;
@@ -67,9 +67,9 @@ header .container-fluid h2{
 }
 header .container-fluid h3{
 	position: absolute;
-    top: 25%;
-    left: 50%;
-    transform: translateX(-50%) translateY(-50%);
+  top: 25%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
 	color: #fff;
 	width: 40%;
 	text-align: center;
@@ -87,14 +87,6 @@ header .container-fluid h3{
 	}
 }
 
-header:after {
-    clear: both;
-    content: '.';
-    display: block;
-    
-   
-}
-
 section{
 	margin-top: 4em;
 }
@@ -104,7 +96,7 @@ section{
 }
 
 .icon{
-	color: #28577F;
+	color: #343434;
 }
 
 #info .row a:hover{
@@ -115,32 +107,36 @@ section{
   font-family: 'Lato', sans-serif;
 }
 
-.bg-1{
-	background-color: #343434;
-	height: 250px;
-}
-
-
 #newsletter h3,p{
 	text-align: center;
 	color: #fff;
 	padding-top: 1em;
 }
 
-
+.col-sm-6{
+  background-color: black;
+}
 
 #newsletter form{
 	padding-top: 1em;
 	text-align: center;
 }
 
+#newsletter{
+  padding-bottom: 2em;
+}
+
 .custom{
 	height: 300px;
 }
 
+#coming{
+	background-color: #0D0C0D !important;
+  color: #fff;
+}
+
 footer{
-	height: 150px;
-	background-color: #343434;
+  background-color: #171717;
 }
 
 .col-sm-6 li p{
@@ -151,13 +147,6 @@ footer{
   border-color: black;
   border-width: 3px;
   max-width: 50px;
-}
-
-.hr-2{
-  border-color: black;
-  border-width: 2px;
-  max-width: 400px;
-  
 }
 
 #info .heading{
@@ -193,13 +182,13 @@ footer{
 
 .products::before{
   left: 50%;
-  top: 10%;
+  top: 5%;
   bottom: 0;
   position: absolute;
   content: "";
   width: 3px;
   background-color: #ededed;
-  height: 830px;
+  height: 850px;
 }
 
 .products li{
@@ -222,31 +211,28 @@ footer{
   height: 140px;
   border-radius: 100%;
   border: 7px solid #efefef;
-
 }
 
 @media screen and (max-width: 992px){
 
-  
   .productItem img{
-  width: 140px;
-  height: 140px;
-  border-radius: 100%;
-  border: 7px solid #efefef;
+    width: 140px;
+    height: 140px;
+    border-radius: 100%;
+    border: 7px solid #efefef;
 }
 
-.products li{
-  display: block;
-  list-style: none;
-  text-align: center;
-}
+  .products li{
+    display: block;
+    list-style: none;
+    text-align: center;
+  }
 
-.products li h2{
-  
-  font-size: 25px;
-  font-family: 'Merriweather', serif;
-  text-shadow: 2px 2px 1px #aaaaaa;
-}
+  .products li h2{
+    font-size: 25px;
+    font-family: 'Merriweather', serif;
+    text-shadow: 2px 2px 1px #aaaaaa;
+  }
 
 }
 
@@ -255,31 +241,37 @@ footer{
 
   .products::before{
     content: none;
-}
+  }
 
-.productItem{
-  float: none !important;
-  margin-right: 2em;
-}
+  .productItem{
+    float: none !important;
+    margin-right: 2em;
+  }
 
   .productItem img{
-  width: 120px;
-  height: 120px;
-  border-radius: 100%;
-  border: 7px solid #efefef;
-}
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    border: 7px solid #efefef;
+  }
 
-.products li{
-  display: block;
-  list-style: none;
-  margin: 0 auto;
-}
+  .products li{
+    display: block;
+    list-style: none;
+    margin: 0 auto;
+  }
 
-.products li h2{
-  font-size: 25px;
-  font-family: 'Merriweather', serif;
-  text-shadow: 2px 2px 1px #aaaaaa;
-}
+  .products li h2{
+    font-size: 25px;
+    font-family: 'Merriweather', serif;
+    text-shadow: 2px 2px 1px #aaaaaa;
+  }
+
+  #newsletter #email{
+    width: 50%;
+    margin: auto;
+    margin-bottom: 1em;
+  }
 
 }
 
@@ -287,31 +279,31 @@ footer{
 
   .products::before{
     content: none;
-}
+  }
 
-.productItem{
-  float: none !important;
-  margin-right: 2.5em;
-}
+  .productItem{
+    float: none !important;
+    margin-right: 2.5em;
+  }
 
   .productItem img{
-  width: 120px;
-  height: 120px;
-  border-radius: 100%;
-  border: 7px solid #efefef;
-}
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    border: 7px solid #efefef;
+  }
 
-.products li{
-  display: block;
-  list-style: none;
-  margin: 0 auto;
-}
+  .products li{
+    display: block;
+    list-style: none;
+    margin: 0 auto;
+  }
 
-.products li h2{
-  font-size: 25px;
-  font-family: 'Merriweather', serif;
-  text-shadow: 2px 2px 1px #aaaaaa;
-}
+  .products li h2{
+    font-size: 25px;
+    font-family: 'Merriweather', serif;
+    text-shadow: 2px 2px 1px #aaaaaa;
+  }
 
 }
 
@@ -319,4 +311,147 @@ footer{
   color: black;
 }
 
+
+#goal h2{
+  font-family: 'Roboto Slab', serif;
+  font-weight: 600;
+}
+
+.fa-globe,.fa-cart-plus,.fa-headphones{
+  display: block;
+  margin: auto;
+  line-height: 100px;
+  border: 1px dashed black;
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+}
+
+.animate:hover{
+  animation: rotation 4s linear infinite;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.fa-globe:before{
+  content: "\f0ac";
+}
+
+.fa-cart-plus:before{
+  content: "\f217";
+}
+
+.fa-headphones:before{
+  content: "\f025";
+}
+
+#goal .row{
+  padding: 2em;
+}
+
+#goal .row:nth-child(4){
+  margin-bottom: 2em;
+}
+
+.specs:nth-child(-n+2):before{
+  position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    border-bottom: 1px dashed #3b3b3b;
+}
+
+.specs:nth-child(odd):after{
+  position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    border-right: 1px solid #3b3b3b;
+}
+
+.item{
+  background-color: #080708 !important;
+}
+
+.specs{
+  background-color: transparent;
+}
+
+.info .row{
+  padding-top: 3em;
+}
+
+.info h2{
+  font-family: 'Roboto Slab', serif;
+  font-weight: 500;
+}
+
+.info .col-sm-6{
+  height: 150px;
+}
+
+footer .row{
+  padding-top: 4em;
+}
+
+.list li{
+  display: inline-block;
+  list-style: none;
+  
+}
+
+.list{
+  margin-right: 2.5em; 
+}
+
+.social{
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  line-height: 120px;
+  border-radius: 50%;
+  
+}
+
+.anime:hover{
+  -webkit-transform:rotate(360deg);
+  transform: rotate(360deg);
+  color: #286090;
+}
+
+.anime{
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.social a{
+  color: #fff;
+}
+
+.navbar-default .navbar-nav>.active>a {
+  background-color: transparent; 
+  color: #286090 !important;
+  -webkit-transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+}
+
+.navbar-default .navbar-nav>.active>a:focus {
+  background-color: transparent;
+  color: #286090 !important;
+  -webkit-transform : scale(1.1);
+  transform : scale(1.1);
+}
 
