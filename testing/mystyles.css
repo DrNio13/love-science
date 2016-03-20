@@ -455,3 +455,7 @@ footer .row{
   transform : scale(1.1);
 }
 
+footer p a:hover{
+  text-decoration: none;
+}
+
