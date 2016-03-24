@@ -2,7 +2,7 @@ var adminApp = angular.module('adminApp', ['ui.tinymce']);
 
 adminApp.factory('serverDataFactory', ['$http', function($http, url, data) {
 
-    var urlBase =  url; //'/api/customers';
+    var urlBase =  url;
     var serverDataFactory = {};
 
     serverDataFactory.postData = function(url,data){
@@ -77,7 +77,7 @@ adminApp.controller('ArticleController', ['$scope', '$http', 'serverDataFactory'
 	$scope.paginationItems = [];
 
 	// GET all articles
-	serverDataFactory.getData('/love-science/system/services/api/articles/all.php')
+	serverDataFactory.getData('/love-science/system/services/api/articles/all')
 	.then(function successGetArticles(response){
 
 		appContentParser.parseArticleContent(response.data);
@@ -104,7 +104,7 @@ adminApp.controller('ArticleController', ['$scope', '$http', 'serverDataFactory'
 
 	// Send article to backend service for saving/updating
 	$scope.postArticle = function(article){
-		serverDataFactory.postData('/love-science/system/services/articles/article_submit.php',angular.toJson(article, true))
+		serverDataFactory.postData('/love-science/system/services/articles/article-submit',angular.toJson(article, true))
 		.then(function successSubmit(response){
 			console.log(response);
 			window.alert(response.data.message + " :) ");
@@ -124,7 +124,7 @@ adminApp.controller('ArticleController', ['$scope', '$http', 'serverDataFactory'
 			$scope.chunkedArticles.splice(index, 1);
 			$scope.allArticles.length--;
 			
-			serverDataFactory.deleteArticle(article, '/love-science/system/services/articles/delete_article.php')
+			serverDataFactory.deleteArticle(article, '/love-science/system/services/articles/delete-article')
 			.then(function doneCallback(response){
 				console.log(response);
 			}, function failCallback (){
@@ -139,7 +139,7 @@ adminApp.controller('ArticleController', ['$scope', '$http', 'serverDataFactory'
 adminApp.controller('EditArticleController', ['$scope', '$http', 'serverDataFactory', function ($scope, $http, serverDataFactory) {
 	
 	// Get the article to be edited
-	serverDataFactory.postData('/love-science/system/services/articles/edit_article.php', articleId)
+	serverDataFactory.postData('/love-science/system/services/articles/edit-article', articleId)
 	.then(function successGetArticleById(response){
 		$scope.article = response.data;
 	}, function failGetArticleById(response){

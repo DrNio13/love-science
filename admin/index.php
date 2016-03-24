@@ -50,11 +50,11 @@ if (isset($username) && isset($password)) {
 				$_SESSION["username"] = $user->getUsername();
 				$_SESSION["ip"] = $user->getRealIpAddr();
 
-				header("location: frontend/index.php");
+				header("location: frontend");
 				exit();
 
 			} elseif ((int) $result['blocked'] === 1) {
-				header("location: blocked.html");
+				header("location: blocked");
 				exit();
 			} else {
 
@@ -66,13 +66,13 @@ if (isset($username) && isset($password)) {
 					$mainController->setLoginRecord($ip);
 				}
 				if ($loginCounter >= 5) {
-					header("location: blocked.html");
+					header("location: blocked");
 				}
 				//************************************//
 
 				session_write_close();
 				http_response_code(401);
-				header("location: actions/login.php");
+				header("location: actions/login");
 				exit();
 			}
 		} else {
@@ -85,13 +85,13 @@ if (isset($username) && isset($password)) {
 				$mainController->setLoginRecord($ip);
 			}
 			if ($loginCounter >= 5) {
-				header("location: blocked.html");
+				header("location: blocked");
 			}
 			//************************************//
 
 			http_response_code(404);
 			//'not registered - wrong credentials';
-			header("location: actions/login.php");
+			header("location: actions/login");
 			exit();
 		}
 	} else {
@@ -103,17 +103,17 @@ if (isset($username) && isset($password)) {
 			$mainController->setLoginRecord($ip);
 		}
 		if ($loginCounter >= 5) {
-			header("location: blocked.html");
+			header("location: blocked");
 		}
 
 		// not valid username or password
 		http_response_code(404);
-		header("location: actions/login.php");
+		header("location: actions/login");
 		die("not valid username or password");
 	}
 } else {
 	http_response_code(404);
-	header("location: actions/login.php");
+	header("location: actions/login");
 	die("username or password not passed");
 
 }
