@@ -11,7 +11,7 @@
 		<div class="collapse navbar-collapse" id="myNavbar">
 			<ul class="nav navbar-nav">
 				<li class=""><a href="<?php echo FRONTEND_CMS_URL . '/index.php'; ?>">Home</a></li>
-				<li><a href="<?php echo COMPONENTS_CMS_URL . '/users/users-list.php'; ?>">Users</a></li>
+				<li><a href="<?php echo COMPONENTS_CMS_URL . '/users/index.php'; ?>">Users</a></li>
 				<li><a href="<?php echo COMPONENTS_CMS_URL . '/articles/articles-list.php'; ?>">Articles</a></li>
 				</ul>
 			<ul class="nav navbar-nav navbar-right">

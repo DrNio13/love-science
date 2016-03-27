@@ -1,20 +1,4 @@
-<?php
-session_start();
-
-require_once '../../../config.php';
-if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 'registered')) {
-	header("location: ../../actions/login.php");
-}
-?>
-
-<!DOCTYPE html>
-<html lang="en" ng-app="adminApp" ng-controller="UserController">
 <head>
-  <title>Admin - User Profile</title>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="/love-science/node_modules/bootstrap/dist/css/bootstrap.min.css">
-
   <style>
     .table-bordered{
 
@@ -74,19 +58,16 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
         display: block;
       }
     }
-
-
   </style>
 </head>
-<body >
-  <?php require_once ADMIN . '/partials/common/nav.php';?>
-  <div class="container-fluid">
+
+<div class="container-fluid">
     <div class="row center-text">
         <div class="col-xs-3 col-xs-offset-3 col-sm-1 col-sm-offset-4">
           <button class="btn btn-success" type="submit">Save</button>
         </div>
         <div class="col-xs-3 col-sm-1">
-          <a href='<?php echo FRONTEND_CMS_URL . '/index.php'; ?>' type="button" class="btn btn-danger">Cancel</a>
+          <button class="btn btn-danger" type="submit">Cancel</button>
         </div>
     </div>
     <h2>User Name - Edit</h2>
@@ -94,19 +75,13 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
       <div class="form-group">
         <label class="col-sm-2 pull-left" for="username">Username</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="username">
+          <input type="text" class="form-control" id="username" value="{{user.username}}">
         </div>
       </div>
       <div class="form-group">
-        <label class="col-sm-2 pull-left" for="firstname">First Name</label>
+        <label class="col-sm-2 pull-left" for="email">Email</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" id="firstname">
-        </div>
-      </div>
-      <div class="form-group">
-        <label class="col-sm-2 pull-left" for="lastname">Last Name</label>
-        <div class="col-sm-10">
-          <input type="text" class="form-control" id="lastname">
+          <input type="text" class="form-control" id="email" value="{{user.email}}">
         </div>
       </div>
       <div class="form-group">
@@ -130,11 +105,3 @@ if (!($_SESSION['usertype'] === 'administrator' || $_SESSION['usertype'] === 're
       </div>
     </form>
   </div>
-
-  <script type="text/javascript" src="<?php echo NODE_MODULES_CMS_URL . '/tinymce/tinymce.min.js'; ?>"></script>
-  <script src="/love-science/node_modules/angular/angular.min.js"></script>
-  <script type="text/javascript" src="/love-science/node_modules/angular-ui-tinymce/dist/tinymce.min.js"></script>
-  <script src="<?php echo FRONTEND_CMS_URL . '/js/app.js'; ?>"></script>
-
-</body>
-</html>
